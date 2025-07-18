@@ -24,10 +24,16 @@
 ```
 bio-chain/
 ├── index.html          # 主页面
+├── about.html          # 关于我们页面
 ├── css/
-│   └── style.css       # 样式文件
+│   ├── style.css       # 主样式文件
+│   └── about.css       # 关于页面样式
 ├── js/
 │   └── main.js         # JavaScript 功能
+├── images/             # 图片资源
+├── deploy.sh           # 部署脚本
+├── DEPLOYMENT_GUIDE.md # 详细部署指南
+├── CNAME.template      # 自定义域名配置模板
 └── README.md           # 项目说明
 ```
 
@@ -185,36 +191,111 @@ bio-chain/
 - 悬停效果动画
 - 页面加载动画
 
-## 📦 部署说明
+## 🚀 快速部署
 
-1. 将所有文件上传到 Web 服务器
-2. 确保所有外部资源链接正常
-3. 检查移动端显示效果
-4. 验证所有交互功能
-5. 测试表单提交功能
+### 方法一：使用部署脚本（推荐）
+
+1. **配置GitHub仓库**
+   ```bash
+   # 添加远程仓库（替换为你的GitHub用户名和仓库名）
+   git remote add origin https://github.com/YOUR_USERNAME/REPO_NAME.git
+   git branch -M main
+   git push -u origin main
+   ```
+
+2. **使用部署脚本**
+   ```bash
+   # 给脚本执行权限
+   chmod +x deploy.sh
+   
+   # 部署网站
+   ./deploy.sh "更新网站内容"
+   ```
+
+### 方法二：手动部署
+
+1. **创建GitHub仓库**
+   - 访问 [GitHub.com](https://github.com)
+   - 创建新的公开仓库
+   - 推送代码到仓库
+
+2. **启用GitHub Pages**
+   - 在仓库设置中找到 "Pages"
+   - 选择 "Deploy from a branch"
+   - 选择 "main" 分支和 "/ (root)" 文件夹
+
+3. **配置自定义域名**
+   - 复制 `CNAME.template` 为 `CNAME`
+   - 编辑 `CNAME` 文件，输入你的域名
+   - 在GitHub Pages设置中启用自定义域名
+
+## 🌐 自定义域名配置
+
+### 1. 购买域名
+推荐域名注册商：
+- 阿里云万网
+- 腾讯云
+- GoDaddy
+- Namecheap
+
+### 2. 配置DNS记录
+
+**GitHub Pages DNS配置：**
+```
+A记录：
+@ → 185.199.108.153
+@ → 185.199.109.153
+@ → 185.199.110.153
+@ → 185.199.111.153
+
+CNAME记录：
+www → YOUR_USERNAME.github.io
+```
+
+### 3. 验证配置
+- 等待DNS传播（通常需要几分钟到48小时）
+- 使用 [DNS Checker](https://dnschecker.org) 验证DNS配置
+- 检查HTTPS证书是否自动配置
+
+## 📋 部署检查清单
+
+- [ ] 代码已推送到GitHub仓库
+- [ ] GitHub Pages已启用
+- [ ] 自定义域名已配置（如需要）
+- [ ] DNS记录已正确设置
+- [ ] HTTPS证书已生效
+- [ ] 网站功能测试通过
+- [ ] 移动端显示正常
+- [ ] 表单提交功能正常
 
 ## 🔧 维护说明
 
 - 定期检查浏览器兼容性
 - 优化代码结构和性能
 - 监控网站加载速度
-- 备份重要文件和数据
+- 定期更新依赖项
+- 备份重要数据
 
-## 📞 联系信息
+## 📚 详细文档
 
-- **办公地址**：生物制品物流中心，上海浦东国际机场，中国
-- **联系电话**：+86 21 6888 8888 (24/7 服务热线)
-- **电子邮箱**：info@bio-chain.cn, support@bio-chain.cn
-- **工作时间**：周一 - 周五 8:00 - 17:30 (CST)
+更多详细的部署和配置信息，请参考：
+- [DEPLOYMENT_GUIDE.md](./DEPLOYMENT_GUIDE.md) - 完整的部署指南
+- [CNAME.template](./CNAME.template) - 自定义域名配置模板
 
-## 🌟 核心优势
+## 🆘 常见问题
 
-- **13年专业经验**：深耕生物制品物流领域
-- **200+国家覆盖**：全球服务网络
-- **10000+成功案例**：丰富的项目经验
-- **99%客户满意度**：优质服务保障
-- **中国品质标准**：严格的质量控制体系
+**Q: 网站部署后无法访问？**
+A: 检查GitHub Pages设置、DNS配置和域名状态。
+
+**Q: 自定义域名不生效？**
+A: 等待DNS传播，通常需要几分钟到48小时。
+
+**Q: HTTPS证书问题？**
+A: 在GitHub Pages设置中启用"Enforce HTTPS"。
+
+**Q: 如何更新网站内容？**
+A: 修改文件后运行 `./deploy.sh "更新说明"` 或手动推送代码。
 
 ---
 
-© 2025 Bio-Chain 有限公司. 保留所有权利. 
+**注意：** 本项目的部署配置已优化，支持快速部署和自定义域名。详细步骤请参考 `DEPLOYMENT_GUIDE.md` 文件。 

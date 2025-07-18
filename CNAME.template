@@ -1,0 +1,11 @@
+# 自定义域名配置模板
+# 复制此文件为 CNAME 并修改为你的实际域名
+
+# 示例：
+# www.yourdomain.com
+# yourdomain.com
+
+# 注意：
+# 1. 确保域名已经购买并配置好DNS
+# 2. 在GitHub Pages设置中启用自定义域名
+# 3. 等待DNS传播（可能需要几分钟到48小时） 
