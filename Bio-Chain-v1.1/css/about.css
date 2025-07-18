@@ -1,0 +1,182 @@
+/* 关于我们页面专用样式 - 与首页保持一致 */
+
+.page-hero {
+    background: linear-gradient(180deg, #a8e0d0 0%, #8dd4c0 50%, #72c8b0 100%);
+    padding: 120px 0 80px;
+    text-align: center;
+    color: #2c3e50;
+}
+.page-hero-content h1 {
+    font-size: 3.5rem;
+    font-weight: 700;
+    margin-bottom: 1rem;
+    color: #1a365d;
+}
+.page-subtitle {
+    font-size: 1.3rem;
+    color: #4a5568;
+    max-width: 600px;
+    margin: 0 auto 2rem;
+    line-height: 1.6;
+}
+
+/* 服务区块 */
+.service-section {
+    padding: 80px 0;
+    background: #ffffff;
+}
+.service-section.alt-bg {
+    background: linear-gradient(135deg, #f7fafc 0%, #edf2f7 100%);
+}
+.service-content {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4rem;
+    align-items: center;
+}
+.service-image {
+    text-align: center;
+    position: relative;
+}
+.service-img {
+    width: 100%;
+    max-width: 500px;
+    height: auto;
+    border-radius: 12px;
+    box-shadow: 0 8px 30px rgba(0,0,0,0.15);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.service-img:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 12px 40px rgba(0,0,0,0.2);
+}
+.service-text h2 {
+    font-size: 2.5rem;
+    color: #1a365d;
+    margin-bottom: 2rem;
+    font-weight: 600;
+    position: relative;
+}
+.service-text h2::after {
+    content: '';
+    position: absolute;
+    bottom: -10px;
+    left: 0;
+    width: 60px;
+    height: 3px;
+    background: linear-gradient(90deg, #2c5282 0%, #1a365d 100%);
+    border-radius: 2px;
+}
+.service-text p {
+    font-size: 1.1rem;
+    color: #4a5568;
+    line-height: 1.8;
+    margin-bottom: 1.5rem;
+}
+
+/* 专业认证 */
+.certifications {
+    padding: 80px 0;
+    background: linear-gradient(135deg, #a8e0d0 0%, #8dd4c0 100%);
+}
+.cert-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    gap: 3rem;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+.cert-item {
+    padding: 2.5rem;
+    background: #ffffff;
+    border-radius: 12px;
+    box-shadow: 0 8px 30px rgba(0,0,0,0.1);
+    text-align: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    border: 1px solid #e2e8f0;
+}
+.cert-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 12px 40px rgba(0,0,0,0.15);
+}
+.cert-image {
+    margin-bottom: 1.5rem;
+}
+.cert-img {
+    width: 120px;
+    height: 80px;
+    border-radius: 8px;
+    object-fit: cover;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    background: #2c5282;
+}
+.cert-item h3 {
+    font-size: 1.3rem;
+    color: #1a365d;
+    margin-bottom: 1rem;
+    font-weight: 600;
+}
+.cert-item p {
+    color: #4a5568;
+    line-height: 1.7;
+    margin-bottom: 1rem;
+}
+
+/* 页脚样式 */
+.footer .footer-content {
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-start;
+    text-align: left;
+}
+.footer .footer-section {
+    max-width: 800px;
+}
+.footer-description {
+    font-size: 1.2rem;
+    line-height: 1.6;
+    margin: 1rem 0;
+    color: #4a5568;
+}
+
+/* 响应式设计 */
+@media (max-width: 768px) {
+    .page-hero-content h1 {
+        font-size: 2.5rem;
+    }
+    .service-content {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+    }
+    .service-text h2 {
+        font-size: 2rem;
+    }
+    .cert-grid {
+        grid-template-columns: 1fr;
+    }
+    .service-img {
+        max-width: 100%;
+    }
+}
+@media (max-width: 480px) {
+    .page-hero {
+        padding: 100px 0 60px;
+    }
+    .page-hero-content h1 {
+        font-size: 2rem;
+    }
+    .service-text h2 {
+        font-size: 1.8rem;
+    }
+    .service-section {
+        padding: 60px 0;
+    }
+    .certifications {
+        padding: 60px 0;
+    }
+    .cert-item {
+        padding: 2rem;
+    }
+} 
