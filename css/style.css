@@ -725,3 +725,83 @@ body {
     display: inline-block;
     border: 1px solid #cbd5e0;
 } 
+
+/* 只保留导航栏响应式，其它响应式注释掉 */
+@media (max-width: 768px) {
+    .nav-menu {
+        position: fixed;
+        top: 60px;
+        left: 0;
+        right: 0;
+        background: white;
+        flex-direction: column;
+        padding: 2rem 1rem;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        max-height: 0;
+        overflow: hidden;
+        opacity: 0;
+        visibility: hidden;
+        transition: max-height 0.35s cubic-bezier(.4,0,.2,1), opacity 0.35s, visibility 0.35s;
+    }
+    .nav-menu.active {
+        max-height: 500px;
+        opacity: 1;
+        visibility: visible;
+    }
+    .nav-toggle {
+        display: flex;
+    }
+}
+
+/* 其它响应式全部注释掉 */
+/*
+@media (max-width: 768px) {
+    .hero-content h1 {
+        font-size: 2rem;
+    }
+    .hero-actions {
+        flex-direction: column;
+        align-items: center;
+    }
+    .stats {
+        flex-direction: column;
+        gap: 2rem;
+    }
+    .contact-content {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+    }
+    .services-grid,
+    .expertise-grid {
+        grid-template-columns: 1fr;
+    }
+    .feature-list {
+        grid-template-columns: 1fr;
+    }
+    .footer-content {
+        grid-template-columns: 1fr;
+        text-align: center;
+        gap: 2rem;
+    }
+}
+@media (max-width: 480px) {
+    .container {
+        padding: 0 15px;
+    }
+    .hero {
+        padding: 100px 0 60px;
+    }
+    .hero-content h1 {
+        font-size: 1.8rem;
+    }
+    .about h2,
+    .services h2,
+    .expertise h2,
+    .contact h2 {
+        font-size: 1.5rem;
+    }
+    .about-content {
+        grid-template-columns: 1fr;
+    }
+} 
+*/ 
