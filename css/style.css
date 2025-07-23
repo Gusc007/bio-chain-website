@@ -918,26 +918,26 @@ body {
   align-items: flex-start !important;
 }
 .footer-logo {
-  font-size: 0.308rem !important; /* 0.628rem * 0.7 ≈ 0.44rem */
+  font-size: 0.628rem !important; /* 0.785rem * 0.8 ≈ 0.628rem */
 }
 .footer-logo i {
-  font-size: 0.42rem !important; /* 0.6rem * 0.7 ≈ 0.42rem */
+  font-size: 0.857rem !important; /* 1.071rem * 0.8 ≈ 0.857rem */
 }
 .footer-logo-text {
-  font-size: 0.252rem !important; /* 0.514rem * 0.7 ≈ 0.36rem */
+  font-size: 0.514rem !important; /* 0.643rem * 0.8 ≈ 0.514rem */
 }
 .footer-slogan {
-  font-size: 0.14rem !important; /* 0.2rem * 0.7 ≈ 0.14rem */
-  max-width: 25px !important;
+  font-size: 0.286rem !important; /* 0.357rem * 0.8 ≈ 0.286rem */
+  max-width: 52px !important;
 }
 .footer-section,
 .footer-section h4,
 .footer-section ul li a,
 .footer-section p {
-  font-size: 0.252rem !important; /* 0.514rem * 0.7 ≈ 0.252rem */
+  font-size: 0.514rem !important; /* 0.643rem * 0.8 ≈ 0.514rem */
 }
 .footer-bottom p {
-  font-size: 0.168rem !important; /* 0.24rem * 0.7 ≈ 0.168rem */
+  font-size: 0.34rem !important; /* 0.425rem * 0.8 ≈ 0.34rem */
 }
 /* 页脚三行主标题加大32% */
 .footer-logo .footer-main-title {
