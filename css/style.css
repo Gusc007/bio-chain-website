@@ -726,7 +726,7 @@ body {
     border: 1px solid #cbd5e0;
 } 
 
-/* 只保留导航栏响应式，其它响应式注释掉 */
+/* 恢复并优化内容区的响应式样式，移动端更协调美观 */
 @media (max-width: 768px) {
     .nav-menu {
         position: fixed;
@@ -751,57 +751,137 @@ body {
     .nav-toggle {
         display: flex;
     }
-}
-
-/* 其它响应式全部注释掉 */
-/*
-@media (max-width: 768px) {
     .hero-content h1 {
         font-size: 2rem;
+    }
+    .hero-subtitle {
+        font-size: 1rem;
     }
     .hero-actions {
         flex-direction: column;
         align-items: center;
+        gap: 1rem;
+    }
+    .features-grid,
+    .about-content,
+    .services-grid,
+    .expertise-grid,
+    .feature-list {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+    }
+    .service,
+    .expertise-item,
+    .feature {
+        padding: 1.2rem 1rem;
+        min-height: unset;
     }
     .stats {
         flex-direction: column;
-        gap: 2rem;
+        gap: 1.5rem;
     }
     .contact-content {
         grid-template-columns: 1fr;
-        gap: 2rem;
-    }
-    .services-grid,
-    .expertise-grid {
-        grid-template-columns: 1fr;
-    }
-    .feature-list {
-        grid-template-columns: 1fr;
+        gap: 1.5rem;
     }
     .footer-content {
         grid-template-columns: 1fr;
         text-align: center;
-        gap: 2rem;
+        gap: 1.5rem;
+    }
+    .footer-logo {
+        justify-content: center;
+    }
+    .footer-section {
+        align-items: center;
+    }
+    .service-img,
+    .feature img {
+        max-width: 100%;
+        height: auto;
     }
 }
 @media (max-width: 480px) {
     .container {
-        padding: 0 15px;
+        padding: 0 10px;
     }
     .hero {
-        padding: 100px 0 60px;
+        padding: 60px 0 40px;
     }
     .hero-content h1 {
-        font-size: 1.8rem;
+        font-size: 1.3rem;
     }
     .about h2,
     .services h2,
     .expertise h2,
     .contact h2 {
-        font-size: 1.5rem;
+        font-size: 1.1rem;
     }
-    .about-content {
+    .about-content,
+    .features-grid,
+    .services-grid,
+    .expertise-grid {
         grid-template-columns: 1fr;
+        gap: 1rem;
+    }
+    .service,
+    .expertise-item,
+    .feature {
+        padding: 1rem 0.5rem;
+    }
+    .service-img,
+    .feature img {
+        height: auto;
+        max-width: 100%;
+    }
+    .footer-content {
+        gap: 1rem;
     }
 } 
-*/ 
+
+@media (max-width: 768px) {
+  /* 联系方式和表单上下排列 */
+  .contact-content {
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 2rem !important;
+  }
+  .contact-info,
+  .contact-form {
+    width: 100% !important;
+    margin: 0 auto !important;
+    box-sizing: border-box;
+  }
+  .contact-form input,
+  .contact-form textarea,
+  .contact-form select,
+  .contact-form button {
+    width: 100% !important;
+    box-sizing: border-box;
+  }
+  .contact-form button {
+    margin-top: 1rem;
+    min-width: 120px;
+    padding: 12px 0;
+    font-size: 1rem;
+  }
+  /* 页脚单列美化 */
+  .footer-content {
+    display: flex !important;
+    flex-direction: column !important;
+    grid-template-columns: none !important;
+    gap: 1.2rem !important;
+    text-align: center !important;
+    align-items: center !important;
+  }
+  .footer-section {
+    width: 100% !important;
+    margin-bottom: 0.5rem;
+  }
+  .footer-section ul {
+    padding: 0;
+    margin: 0 auto;
+    display: inline-block;
+    text-align: left;
+  }
+} 
