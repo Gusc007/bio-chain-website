@@ -918,24 +918,24 @@ body {
   align-items: flex-start !important;
 }
 .footer-logo {
-  font-size: 0.924rem !important; /* 1.1rem * 0.84 ≈ 0.924rem */
+  font-size: 0.785rem !important; /* 0.924rem * 0.85 ≈ 0.785rem */
 }
 .footer-logo i {
-  font-size: 1.26rem !important; /* 1.5rem * 0.84 ≈ 1.26rem */
+  font-size: 1.071rem !important; /* 1.26rem * 0.85 ≈ 1.071rem */
 }
 .footer-logo-text {
-  font-size: 0.756rem !important; /* 0.9rem * 0.84 ≈ 0.756rem */
+  font-size: 0.643rem !important; /* 0.756rem * 0.85 ≈ 0.643rem */
 }
 .footer-slogan {
-  font-size: 0.42rem !important; /* 0.5rem * 0.84 ≈ 0.42rem */
-  max-width: 76px !important;
+  font-size: 0.357rem !important; /* 0.42rem * 0.85 ≈ 0.357rem */
+  max-width: 65px !important;
 }
 .footer-section,
 .footer-section h4,
 .footer-section ul li a,
 .footer-section p {
-  font-size: 0.756rem !important; /* 0.9rem * 0.84 ≈ 0.756rem */
+  font-size: 0.643rem !important; /* 0.756rem * 0.85 ≈ 0.643rem */
 }
 .footer-bottom p {
-  font-size: 0.5rem !important; /* 0.595rem * 0.84 ≈ 0.5rem */
+  font-size: 0.425rem !important; /* 0.5rem * 0.85 ≈ 0.425rem */
 } 
