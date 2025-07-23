@@ -106,7 +106,7 @@ function isValidEmail(email) {
 
 // 电话验证函数
 function isValidPhone(phone) {
-    const phoneRegex = /^[\+]?[0-9\s\-\(\)]{7,}$/;
+    const phoneRegex = /^[\+]?\d{7,}$/;
     return phoneRegex.test(phone);
 }
 

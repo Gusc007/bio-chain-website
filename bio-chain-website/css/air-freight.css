@@ -1,5 +1,30 @@
 /* 空运服务页面专用样式 - 与关于我们页面保持一致 */
 
+/* 基础响应式设置 */
+* {
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    line-height: 1.6;
+    color: #2c3e50;
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/* 确保图片响应式 */
+img {
+    max-width: 100%;
+    height: auto;
+}
+
 .page-hero {
     background: linear-gradient(180deg, #a8e0d0 0%, #8dd4c0 50%, #72c8b0 100%);
     padding: 120px 0 80px;
@@ -160,46 +185,125 @@
 
 /* 响应式设计 */
 @media (max-width: 768px) {
-    .page-hero-content h1 {
-        font-size: 2.5rem;
-    }
-    .service-content,
-    .service-content.reverse {
-        grid-template-columns: 1fr;
-        gap: 2rem;
-        direction: ltr;
-    }
-    .service-text h2,
-    .specialist-services h2 {
-        font-size: 2rem;
-    }
-    .specialist-grid {
-        grid-template-columns: 1fr;
-    }
-    .service-img {
-        max-width: 100%;
-        height: 250px;
-    }
-}
-@media (max-width: 480px) {
     .page-hero {
         padding: 100px 0 60px;
     }
     .page-hero-content h1 {
-        font-size: 2rem;
+        font-size: 3rem;
+        margin-bottom: 1.5rem;
+    }
+    .page-subtitle {
+        font-size: 1.2rem;
+        margin-bottom: 2.5rem;
+    }
+    .service-content,
+    .service-content.reverse {
+        grid-template-columns: 1fr;
+        gap: 3rem;
+        direction: ltr;
     }
     .service-text h2,
     .specialist-services h2 {
-        font-size: 1.8rem;
+        font-size: 2.2rem;
+        margin-bottom: 2.5rem;
+    }
+    .service-text p {
+        font-size: 1.1rem;
+        line-height: 1.8;
+        margin-bottom: 1.8rem;
+    }
+    .specialist-grid {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+    }
+    .specialist-item {
+        padding: 2rem 1.5rem;
+    }
+    .specialist-item h3 {
+        font-size: 1.4rem;
+        margin-bottom: 1.2rem;
+    }
+    .specialist-item p {
+        font-size: 1rem;
+        line-height: 1.7;
+    }
+    .service-img {
+        max-width: 100%;
+        height: 300px;
+    }
+    .service-section,
+    .specialist-services {
+        padding: 70px 0;
+    }
+    
+    /* 移动端导航优化 */
+    .navbar {
+        position: fixed;
+        top: 0;
+        width: 100%;
+        z-index: 1000;
+        background: rgba(255, 255, 255, 0.95);
+        backdrop-filter: blur(10px);
+    }
+    
+    /* 确保内容不被固定导航栏遮挡 */
+    main {
+        margin-top: 80px;
+    }
+}
+
+@media (max-width: 480px) {
+    .page-hero {
+        padding: 80px 0 50px;
+    }
+    .page-hero-content h1 {
+        font-size: 2.5rem;
+        margin-bottom: 1.2rem;
+    }
+    .page-subtitle {
+        font-size: 1.1rem;
+        margin-bottom: 2rem;
+    }
+    .service-text h2,
+    .specialist-services h2 {
+        font-size: 2rem;
+        margin-bottom: 2rem;
+    }
+    .service-text p {
+        font-size: 1rem;
+        line-height: 1.7;
+        margin-bottom: 1.5rem;
     }
     .service-section,
     .specialist-services {
         padding: 60px 0;
     }
     .specialist-item {
-        padding: 1.5rem;
+        padding: 1.8rem 1.2rem;
+    }
+    .specialist-item h3 {
+        font-size: 1.3rem;
+        margin-bottom: 1rem;
     }
     .service-img {
-        height: 200px;
+        height: 250px;
+    }
+    .service-content,
+    .service-content.reverse {
+        gap: 2rem;
+    }
+    
+    /* 小屏幕容器优化 */
+    .container {
+        padding: 0 15px;
+    }
+    
+    /* 确保图标在小屏幕上合适 */
+    .specialist-icon {
+        width: 70px;
+        height: 70px;
+    }
+    .specialist-icon i {
+        font-size: 1.8rem;
     }
 } 

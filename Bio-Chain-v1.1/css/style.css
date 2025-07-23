@@ -283,23 +283,6 @@ body {
     transition: box-shadow 0.3s;
 }
 
-@media (max-width: 1200px) {
-    .services-grid {
-        max-width: 1000px;
-        grid-template-columns: repeat(2, 1fr);
-    }
-}
-@media (max-width: 768px) {
-    .services-grid {
-        grid-template-columns: 1fr;
-        max-width: 100%;
-    }
-    .service {
-        min-height: unset;
-        padding: 2rem 1.2rem;
-    }
-}
-
 .service:hover {
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
 }
@@ -620,65 +603,55 @@ body {
 }
 
 /* 响应式设计 */
-@media (max-width: 768px) {
-    .nav-menu {
-        position: fixed;
-        top: 100%;
-        left: 0;
-        right: 0;
-        background: white;
-        flex-direction: column;
-        padding: 2rem;
-        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-        transform: translateY(-100%);
-        opacity: 0;
-        visibility: hidden;
-        transition: all 0.3s;
-    }
-    
-    .nav-menu.active {
-        transform: translateY(0);
-        opacity: 1;
-        visibility: visible;
-    }
-    
-    .nav-toggle {
-        display: flex;
-    }
-    
-    .hero-content h1 {
-        font-size: 2rem;
-    }
-    
-    .hero-actions {
-        flex-direction: column;
-        align-items: center;
-    }
-    
-    .stats {
-        flex-direction: column;
-        gap: 2rem;
-    }
-    
-    .contact-content {
-        grid-template-columns: 1fr;
-        gap: 2rem;
-    }
-    
-    .services-grid,
-    .expertise-grid {
-        grid-template-columns: 1fr;
-    }
-    
-    .feature-list {
-        grid-template-columns: 1fr;
-    }
-    
-    .footer-content {
-        grid-template-columns: 1fr;
-        text-align: center;
-        gap: 2rem;
-    }
+/* ======= 移除所有 @media (max-width: ...) 相关的 CSS，统一为桌面端布局 ======= */
+/* 桌面端强制横向导航和多列内容 */
+.nav-toggle {
+    display: none !important;
+}
+.nav-menu {
+    display: flex !important;
+    flex-direction: row !important;
+    position: static !important;
+    opacity: 1 !important;
+    visibility: visible !important;
+    background: none !important;
+    box-shadow: none !important;
+    padding: 0 !important;
+    gap: 2rem;
+}
+.features-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+}
+.services-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 2.5rem;
+    max-width: 1400px;
+    margin: 0 auto 3rem auto;
+}
+.about-content {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+    text-align: left;
+}
+.footer-content {
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr 1fr;
+    gap: 2rem;
+    margin-bottom: 2rem;
+    position: relative;
+    top: -10%;
+}
+.expertise-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+}
+.feature-list {
+    grid-template-columns: 1fr;
 }
 
 @media (max-width: 480px) {
