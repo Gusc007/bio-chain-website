@@ -912,7 +912,7 @@ body {
 
 .footer-content {
   display: grid !important;
-  grid-template-columns: repeat(3, 1fr) !important;
+  grid-template-columns: repeat(4, 1fr) !important;
   gap: 2rem !important;
   text-align: left !important;
   align-items: flex-start !important;
@@ -920,7 +920,7 @@ body {
 @media (max-width: 768px) {
   .footer-content {
     display: grid !important;
-    grid-template-columns: repeat(3, 1fr) !important;
+    grid-template-columns: repeat(4, 1fr) !important;
     gap: 1rem !important;
     text-align: left !important;
     align-items: flex-start !important;
@@ -929,4 +929,7 @@ body {
     width: 100% !important;
     margin-bottom: 0.5rem;
   }
+}
+.footer-bottom p {
+  font-size: 0.595rem !important; /* 原为0.7rem，减小约15% */
 } 
