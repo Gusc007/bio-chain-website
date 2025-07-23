@@ -934,7 +934,7 @@ body {
 .footer-section h4,
 .footer-section ul li a,
 .footer-section p {
-  font-size: 0.514rem !important; /* 0.643rem * 0.8 ≈ 0.514rem */
+  font-size: 1.285rem !important; /* 0.514rem * 2.5 ≈ 1.285rem (加大150%) */
 }
 .footer-bottom p {
   font-size: 0.34rem !important; /* 0.425rem * 0.8 ≈ 0.34rem */
