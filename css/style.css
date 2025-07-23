@@ -985,16 +985,49 @@ body {
 
 @media (max-width: 768px) {
   .footer-content {
-    display: flex !important;
-    flex-direction: column !important;
-    gap: 1.2rem !important;
-    align-items: center !important;
-    text-align: center !important;
+    display: grid !important;
+    grid-template-columns: 1fr 1fr !important;
+    gap: 1rem !important;
+    align-items: flex-start !important;
+    text-align: left !important;
   }
   .footer-main-left {
+    grid-column: 1 / 2;
     font-size: 0.8rem !important;
-    align-items: center !important;
+    align-items: flex-start !important;
     margin-bottom: 0.5rem !important;
+  }
+  .footer-columns-horizontal {
+    grid-column: 2 / 3;
+    width: 100%;
+    flex-direction: column !important;
+    gap: 0.5rem !important;
+    align-items: flex-start !important;
+  }
+  .footer-titles-row {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    gap: 1.2rem;
+    margin-bottom: 0.1rem;
+  }
+  .footer-title {
+    font-size: 0.85rem !important;
+    min-width: 60px;
+  }
+  .footer-cols-row {
+    display: flex;
+    flex-direction: row;
+    gap: 1.2rem;
+    justify-content: flex-start;
+  }
+  .footer-col-content {
+    min-width: 60px;
+  }
+  .footer-col-content ul li a {
+    font-size: 0.7rem !important;
+    line-height: 1.5;
+    padding: 0.05em 0;
   }
   .footer-logo {
     font-size: 0.8rem !important;
@@ -1017,36 +1050,5 @@ body {
   }
   .social-links a {
     font-size: 0.8rem !important;
-  }
-  .footer-columns-horizontal {
-    width: 100%;
-    flex-direction: column !important;
-    gap: 0.5rem !important;
-    align-items: center !important;
-  }
-  .footer-titles-row {
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    gap: 1.2rem;
-    margin-bottom: 0.1rem;
-  }
-  .footer-title {
-    font-size: 0.85rem !important;
-    min-width: 60px;
-  }
-  .footer-cols-row {
-    display: flex;
-    flex-direction: row;
-    gap: 1.2rem;
-    justify-content: center;
-  }
-  .footer-col-content {
-    min-width: 60px;
-  }
-  .footer-col-content ul li a {
-    font-size: 0.7rem !important;
-    line-height: 1.5;
-    padding: 0.05em 0;
   }
 } 
