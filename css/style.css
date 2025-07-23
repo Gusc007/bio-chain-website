@@ -918,24 +918,40 @@ body {
   align-items: flex-start !important;
 }
 .footer-logo {
-  font-size: 0.628rem !important; /* 0.785rem * 0.8 ≈ 0.628rem */
+  font-size: 0.44rem !important; /* 0.628rem * 0.7 ≈ 0.44rem */
 }
 .footer-logo i {
-  font-size: 0.857rem !important; /* 1.071rem * 0.8 ≈ 0.857rem */
+  font-size: 0.6rem !important; /* 0.857rem * 0.7 ≈ 0.6rem */
 }
 .footer-logo-text {
-  font-size: 0.514rem !important; /* 0.643rem * 0.8 ≈ 0.514rem */
+  font-size: 0.36rem !important; /* 0.514rem * 0.7 ≈ 0.36rem */
 }
 .footer-slogan {
-  font-size: 0.286rem !important; /* 0.357rem * 0.8 ≈ 0.286rem */
-  max-width: 52px !important;
+  font-size: 0.2rem !important; /* 0.286rem * 0.7 ≈ 0.2rem */
+  max-width: 36px !important;
 }
 .footer-section,
 .footer-section h4,
 .footer-section ul li a,
 .footer-section p {
-  font-size: 0.514rem !important; /* 0.643rem * 0.8 ≈ 0.514rem */
+  font-size: 0.36rem !important; /* 0.514rem * 0.7 ≈ 0.36rem */
 }
 .footer-bottom p {
-  font-size: 0.34rem !important; /* 0.425rem * 0.8 ≈ 0.34rem */
+  font-size: 0.24rem !important; /* 0.34rem * 0.7 ≈ 0.24rem */
+}
+/* 页脚三行主标题加大32% */
+.footer-logo .footer-main-title {
+  font-size: 1.316rem !important; /* 1rem * 1.32 ≈ 1.316rem */
+  font-weight: 700;
+  letter-spacing: 0.5px;
+}
+.footer-logo .footer-main-subtitle {
+  font-size: 0.79rem !important; /* 0.6rem * 1.32 ≈ 0.79rem */
+  font-weight: 500;
+  letter-spacing: 0.2px;
+}
+.footer-logo .footer-main-desc {
+  font-size: 0.47rem !important; /* 0.36rem * 1.32 ≈ 0.47rem */
+  font-weight: 400;
+  letter-spacing: 0.1px;
 } 
