@@ -909,3 +909,24 @@ body {
     font-size: 0.7rem !important;
   }
 } 
+
+.footer-content {
+  display: grid !important;
+  grid-template-columns: repeat(3, 1fr) !important;
+  gap: 2rem !important;
+  text-align: left !important;
+  align-items: flex-start !important;
+}
+@media (max-width: 768px) {
+  .footer-content {
+    display: grid !important;
+    grid-template-columns: repeat(3, 1fr) !important;
+    gap: 1rem !important;
+    text-align: left !important;
+    align-items: flex-start !important;
+  }
+  .footer-section {
+    width: 100% !important;
+    margin-bottom: 0.5rem;
+  }
+} 
