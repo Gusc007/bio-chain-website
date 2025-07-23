@@ -912,16 +912,29 @@ body {
 
 .footer-content {
   display: grid !important;
-  grid-template-columns: repeat(3, 1fr) !important;
+  grid-template-columns: repeat(4, 1fr) !important;
   gap: 2rem !important;
   text-align: left !important;
   align-items: flex-start !important;
+}
+.footer-logo {
+  font-size: 0.628rem !important;
+}
+.footer-logo i {
+  font-size: 0.857rem !important;
+}
+.footer-logo-text {
+  font-size: 0.514rem !important;
+}
+.footer-slogan {
+  font-size: 0.286rem !important;
+  max-width: 52px !important;
 }
 .footer-section,
 .footer-section h4,
 .footer-section ul li a,
 .footer-section p {
-  font-size: 0.685rem !important; /* 2.056rem / 3 ≈ 0.685rem (减小200%) */
+  font-size: 0.9rem !important; /* 调整为合适的大小 */
 }
 .footer-bottom p {
   font-size: 0.34rem !important; /* 0.425rem * 0.8 ≈ 0.34rem */
