@@ -865,7 +865,8 @@ body {
     padding: 12px 0;
     font-size: 1rem;
   }
-  /* 页脚单列美化 */
+  /* 页脚横向多列，移除单列样式 */
+  /*
   .footer-content {
     display: flex !important;
     flex-direction: column !important;
@@ -884,10 +885,7 @@ body {
     display: inline-block;
     text-align: left;
   }
-} 
-
-@media (max-width: 768px) {
-  /* 页脚图片和文字缩小 */
+  */
   .footer-logo {
     font-size: 1.1rem !important;
   }
@@ -909,21 +907,5 @@ body {
   }
   .footer-bottom p {
     font-size: 0.7rem !important;
-  }
-  /* 发送消息表单单独一行下移 */
-  .contact-content {
-    display: flex !important;
-    flex-direction: column !important;
-    gap: 2rem !important;
-  }
-  .contact-info {
-    width: 100% !important;
-    margin-bottom: 2rem !important;
-  }
-  .contact-form {
-    width: 100% !important;
-    margin: 0 auto !important;
-    box-sizing: border-box;
-    order: 2 !important;
   }
 } 
