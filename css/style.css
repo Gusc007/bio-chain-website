@@ -1032,3 +1032,62 @@ body {
     padding: 0.005em 0;
   }
 } 
+
+/* 清理所有移动端页脚竖排、错位、极小行距的CSS，恢复横向并排4列，仅缩小字体和间距 */
+@media (max-width: 768px) {
+  .footer-content {
+    display: grid !important;
+    grid-template-columns: 2fr 1fr 1fr 1fr !important;
+    gap: 0.5rem !important;
+    margin-bottom: 1rem !important;
+    position: static !important;
+    top: auto !important;
+    text-align: left !important;
+  }
+  .footer-section, .footer-main-left {
+    font-size: 0.8rem !important;
+    margin-bottom: 0 !important;
+    padding: 0 0.1rem !important;
+  }
+  .footer-section h4 {
+    font-size: 0.9rem !important;
+    margin-bottom: 0.5rem !important;
+  }
+  .footer-section ul {
+    margin-bottom: 0.2em !important;
+    padding-left: 0 !important;
+  }
+  .footer-section ul li {
+    list-style: none !important;
+    margin-bottom: 0.2rem !important;
+  }
+  .footer-section ul li a {
+    font-size: 0.7rem !important;
+    line-height: 1.2 !important;
+    padding: 0.05em 0 !important;
+    display: block !important;
+  }
+  .footer-logo {
+    font-size: 1rem !important;
+    margin-bottom: 0.5rem !important;
+  }
+  .footer-logo i {
+    font-size: 1.2rem !important;
+    margin-right: 0.2rem !important;
+  }
+  .footer-logo-text span:first-child {
+    font-size: 1.1rem !important;
+  }
+  .footer-slogan {
+    font-size: 0.6rem !important;
+    max-width: 70px !important;
+  }
+  .footer-main-left p {
+    font-size: 0.7rem !important;
+    margin-bottom: 0.5rem !important;
+  }
+  /* 移除所有竖排、错位、极小行距的覆盖 */
+  .footer-columns-3col, .footer-columns-3col .footer-section {
+    all: unset;
+  }
+} 
