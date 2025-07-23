@@ -991,10 +991,11 @@ body {
   .footer-columns-3col {
     display: flex;
     flex-direction: row;
-    justify-content: space-between;
+    justify-content: flex-start;
     gap: 0.3rem;
     width: 100%;
     margin-top: 0.2rem;
+    margin-left: 1.2rem;
   }
   .footer-columns-3col .footer-section {
     flex: 1 1 0;
@@ -1002,38 +1003,9 @@ body {
     padding: 0 0.1rem !important;
     margin: 0 !important;
   }
-  .footer-logo {
-    font-size: 0.6rem !important;
-    margin-bottom: 0.3rem !important;
-  }
-  .footer-logo i {
-    font-size: 0.7rem !important;
-    margin-right: 0.1rem !important;
-  }
-  .footer-logo-text span:first-child {
-    font-size: 0.7rem !important;
-  }
-  .footer-slogan {
-    font-size: 0.35rem !important;
-    max-width: 40px !important;
-  }
-  .footer-main-left p, .footer-section p {
-    font-size: 0.5rem !important;
-    margin-bottom: 0.3rem !important;
-  }
-  .footer-section h4 {
-    font-size: 0.6rem !important;
-    margin: 0.3em 0 0.1em 0;
-  }
-  .footer-section ul {
-    margin-bottom: 0.2em;
-  }
   .footer-section ul li a {
     font-size: 0.45rem !important;
-    line-height: 1.05;
+    line-height: 0.24 !important; /* 原1.2，减小80% */
     padding: 0.01em 0;
-  }
-  .social-links a {
-    font-size: 0.6rem !important;
   }
 } 
