@@ -917,19 +917,25 @@ body {
   text-align: left !important;
   align-items: flex-start !important;
 }
-@media (max-width: 768px) {
-  .footer-content {
-    display: grid !important;
-    grid-template-columns: repeat(4, 1fr) !important;
-    gap: 1rem !important;
-    text-align: left !important;
-    align-items: flex-start !important;
-  }
-  .footer-section {
-    width: 100% !important;
-    margin-bottom: 0.5rem;
-  }
+.footer-logo {
+  font-size: 0.924rem !important; /* 1.1rem * 0.84 ≈ 0.924rem */
+}
+.footer-logo i {
+  font-size: 1.26rem !important; /* 1.5rem * 0.84 ≈ 1.26rem */
+}
+.footer-logo-text {
+  font-size: 0.756rem !important; /* 0.9rem * 0.84 ≈ 0.756rem */
+}
+.footer-slogan {
+  font-size: 0.42rem !important; /* 0.5rem * 0.84 ≈ 0.42rem */
+  max-width: 76px !important;
+}
+.footer-section,
+.footer-section h4,
+.footer-section ul li a,
+.footer-section p {
+  font-size: 0.756rem !important; /* 0.9rem * 0.84 ≈ 0.756rem */
 }
 .footer-bottom p {
-  font-size: 0.595rem !important; /* 原为0.7rem，减小约15% */
+  font-size: 0.5rem !important; /* 0.595rem * 0.84 ≈ 0.5rem */
 } 
