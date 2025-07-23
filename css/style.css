@@ -918,11 +918,11 @@ body {
   align-items: flex-start !important;
 }
 .footer-logo {
-  font-size: 1.2rem !important;
+  font-size: 0.4rem !important; /* 1.2rem / 3 ≈ 0.4rem */
   margin-bottom: 1rem;
 }
 .footer-logo i {
-  font-size: 1.8rem !important;
+  font-size: 0.6rem !important; /* 1.8rem / 3 ≈ 0.6rem */
   margin-right: 0.5rem;
 }
 .footer-logo-text {
@@ -930,24 +930,24 @@ body {
   flex-direction: column;
 }
 .footer-logo-text span:first-child {
-  font-size: 1.5rem !important;
+  font-size: 0.5rem !important; /* 1.5rem / 3 ≈ 0.5rem */
   font-weight: 700;
   margin-bottom: 0.2rem;
 }
 .footer-slogan {
-  font-size: 0.8rem !important;
+  font-size: 0.267rem !important; /* 0.8rem / 3 ≈ 0.267rem */
   font-weight: 400;
   letter-spacing: 0.5px;
-  max-width: 200px !important;
+  max-width: 67px !important; /* 200px / 3 ≈ 67px */
 }
 .footer-section p {
-  font-size: 0.85rem !important;
+  font-size: 0.283rem !important; /* 0.85rem / 3 ≈ 0.283rem */
   line-height: 1.6;
   margin-bottom: 1.5rem;
   color: #ffffff !important;
 }
 .footer-section h4 {
-  font-size: 1rem !important;
+  font-size: 0.333rem !important; /* 1rem / 3 ≈ 0.333rem */
   font-weight: 600;
   margin-bottom: 1rem;
   color: #ffffff !important;
@@ -955,7 +955,7 @@ body {
   letter-spacing: 0.5px;
 }
 .footer-section ul li a {
-  font-size: 0.85rem !important;
+  font-size: 0.283rem !important; /* 0.85rem / 3 ≈ 0.283rem */
   color: #ffffff !important;
   text-decoration: none;
   line-height: 1.8;
@@ -971,7 +971,7 @@ body {
 }
 .social-links a {
   color: #ffffff !important;
-  font-size: 1.2rem !important;
+  font-size: 0.4rem !important; /* 1.2rem / 3 ≈ 0.4rem */
   text-decoration: none;
   transition: color 0.3s;
 }
