@@ -1097,3 +1097,24 @@ body {
     font-size: 0.49rem !important; /* 0.7rem * 0.7 ≈ 0.49rem，减小30% */
   }
 } 
+
+@media (max-width: 768px) {
+  /* 右三列行间距增加25% */
+  .footer-section ul li a {
+    line-height: 1.5 !important;
+  }
+  /* CARE OF TIME AND TEMPERATURE 三行显示 */
+  .footer-slogan {
+    white-space: pre-line !important;
+    display: block !important;
+    font-size: 0.6rem !important;
+    max-width: 70px !important;
+  }
+  /* 页脚版权信息一行显示 */
+  .footer-bottom p {
+    white-space: nowrap !important;
+    word-break: keep-all !important;
+    font-size: 0.7rem !important;
+    overflow-x: auto;
+  }
+} 
