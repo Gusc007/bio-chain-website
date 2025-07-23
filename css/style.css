@@ -619,7 +619,8 @@ body {
     margin: 0;
 }
 
-/* 响应式设计 */
+/* 响应式设计全部注释，移动端与桌面端完全一致 */
+/*
 @media (max-width: 768px) {
     .nav-menu {
         position: fixed;
@@ -704,6 +705,7 @@ body {
         grid-template-columns: 1fr;
     }
 } 
+*/
 
 /* 服务卡片要点横向排列 */
 .service-points {
