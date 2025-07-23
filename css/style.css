@@ -623,25 +623,24 @@ body {
 @media (max-width: 768px) {
     .nav-menu {
         position: fixed;
-        top: 100%;
+        top: 60px;
         left: 0;
         right: 0;
         background: white;
         flex-direction: column;
-        padding: 2rem;
+        padding: 2rem 1rem;
         box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-        transform: translateY(-100%);
+        max-height: 0;
+        overflow: hidden;
         opacity: 0;
         visibility: hidden;
-        transition: all 0.3s;
+        transition: max-height 0.35s cubic-bezier(.4,0,.2,1), opacity 0.35s, visibility 0.35s;
     }
-    
     .nav-menu.active {
-        transform: translateY(0);
+        max-height: 500px;
         opacity: 1;
         visibility: visible;
     }
-    
     .nav-toggle {
         display: flex;
     }
