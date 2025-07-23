@@ -985,14 +985,20 @@ body {
 
 @media (max-width: 768px) {
   .footer-content {
-    display: grid !important;
-    grid-template-columns: repeat(4, 1fr) !important;
-    gap: 0.5rem !important;
-    align-items: flex-start !important;
-    text-align: left !important;
+    display: block !important;
     padding: 0 0.2rem;
   }
-  .footer-section, .footer-main-left, .mobile-col-1, .mobile-col-2 {
+  .footer-columns-3col {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    gap: 0.3rem;
+    width: 100%;
+    margin-top: 0.2rem;
+  }
+  .footer-columns-3col .footer-section {
+    flex: 1 1 0;
+    min-width: 0;
     padding: 0 0.1rem !important;
     margin: 0 !important;
   }
