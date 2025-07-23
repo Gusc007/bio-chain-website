@@ -885,3 +885,45 @@ body {
     text-align: left;
   }
 } 
+
+@media (max-width: 768px) {
+  /* 页脚图片和文字缩小 */
+  .footer-logo {
+    font-size: 1.1rem !important;
+  }
+  .footer-logo i {
+    font-size: 1.5rem !important;
+  }
+  .footer-logo-text {
+    font-size: 0.9rem !important;
+  }
+  .footer-slogan {
+    font-size: 0.5rem !important;
+    max-width: 90px !important;
+  }
+  .footer-section,
+  .footer-section h4,
+  .footer-section ul li a,
+  .footer-section p {
+    font-size: 0.9rem !important;
+  }
+  .footer-bottom p {
+    font-size: 0.7rem !important;
+  }
+  /* 发送消息表单单独一行下移 */
+  .contact-content {
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 2rem !important;
+  }
+  .contact-info {
+    width: 100% !important;
+    margin-bottom: 2rem !important;
+  }
+  .contact-form {
+    width: 100% !important;
+    margin: 0 auto !important;
+    box-sizing: border-box;
+    order: 2 !important;
+  }
+} 
