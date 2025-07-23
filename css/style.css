@@ -1012,7 +1012,7 @@ body {
 
 @media (max-width: 768px) {
   .footer-section ul li a {
-    line-height: 0.24 !important; /* 原1.2，减小80% */
-    padding: 0.01em 0;
+    line-height: 0.11 !important; /* 再减小120%（0.24/2.2≈0.11） */
+    padding: 0.005em 0;
   }
 } 
