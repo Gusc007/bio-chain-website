@@ -1012,10 +1012,10 @@ body {
 
 @media (max-width: 768px) {
   .footer-columns-3col {
-    margin-left: 1.44rem; /* 原1.2rem基础上右移20% */
+    margin-left: 1.2rem;
   }
   .footer-section ul li a {
-    line-height: 0.055 !important; /* 再减小100%（0.11/2≈0.055） */
-    padding: 0.003em 0;
+    line-height: 0.11 !important; /* 恢复为上上步的行距 */
+    padding: 0.005em 0;
   }
 } 
