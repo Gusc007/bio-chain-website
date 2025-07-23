@@ -1091,3 +1091,9 @@ body {
     all: unset;
   }
 } 
+
+@media (max-width: 768px) {
+  .footer-main-left p {
+    font-size: 0.49rem !important; /* 0.7rem * 0.7 ≈ 0.49rem，减小30% */
+  }
+} 
