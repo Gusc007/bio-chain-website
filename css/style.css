@@ -1093,8 +1093,10 @@ body {
 } 
 
 @media (max-width: 768px) {
-  .footer-main-left p {
-    font-size: 0.49rem !important; /* 0.7rem * 0.7 = 0.49rem */
+  .footer-section.footer-main-left > p,
+  .footer-main-left > p,
+  .footer-section > p {
+    font-size: 0.49rem !important;
     margin-bottom: 0.5rem !important;
   }
   .footer-slogan {
