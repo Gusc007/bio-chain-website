@@ -1094,7 +1094,14 @@ body {
 
 @media (max-width: 768px) {
   .footer-main-left p {
-    font-size: 0.37rem !important; /* 0.49rem * 0.75 ≈ 0.37rem，减小25% */
+    font-size: 0.7rem !important;
+  }
+  .footer-slogan {
+    font-size: 0.45rem !important;
+    white-space: pre-line !important;
+    display: block !important;
+    max-width: 70px !important;
+    line-height: 1.2 !important;
   }
 } 
 
