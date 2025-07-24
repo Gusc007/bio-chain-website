@@ -1093,7 +1093,8 @@ body {
 } 
 
 @media (max-width: 768px) {
-  .footer-main-left p {
+  .footer-main-left p,
+  .footer-description {
     font-size: 0.7rem !important;
   }
   .footer-slogan {
@@ -1102,6 +1103,7 @@ body {
     display: block !important;
     max-width: 70px !important;
     line-height: 1.2 !important;
+    word-break: break-all !important;
   }
 } 
 
