@@ -913,7 +913,7 @@ body {
 /* ======= 页脚布局重定义，彻底清理重复和!important ======= */
 .footer-content {
   display: grid;
-  grid-template-columns: 1.5fr 1fr 2fr;
+  grid-template-columns: 1.5fr 1fr 1fr 1fr;
   gap: 2rem;
   margin-bottom: 2rem;
   align-items: flex-start;
@@ -1068,37 +1068,90 @@ body {
   }
 } 
 
-.footer-company-info-cols {
-  display: flex;
-  flex-direction: row;
-  gap: 2rem;
-}
-.footer-company-info ul {
-  padding-left: 0;
-  margin: 0;
-  list-style: none;
-}
-.footer-company-info ul li {
-  margin-bottom: 0.5rem;
-}
-.footer-company-info ul li a {
-  color: #fff;
-  font-size: 0.9rem;
-  text-decoration: none;
-  transition: color 0.3s;
-}
-.footer-company-info ul li a:hover {
-  text-decoration: underline;
-}
-@media (max-width: 1200px) {
-  .footer-company-info-cols {
-    flex-direction: column;
-    gap: 1rem;
-  }
-}
+/* 清理所有移动端页脚竖排、错位、极小行距的CSS，恢复横向并排4列，仅缩小字体和间距 */
 @media (max-width: 768px) {
-  .footer-company-info-cols {
-    flex-direction: column;
-    gap: 0.5rem;
+  .footer-content {
+    display: grid !important;
+    grid-template-columns: 2fr 1fr 1fr 1fr !important;
+    gap: 0.5rem !important;
+    margin-bottom: 1rem !important;
+    position: static !important;
+    top: auto !important;
+    text-align: left !important;
+  }
+  .footer-section, .footer-main-left {
+    font-size: 0.8rem !important;
+    margin-bottom: 0 !important;
+    padding: 0 0.1rem !important;
+  }
+  .footer-section h4 {
+    font-size: 0.9rem !important;
+    margin-bottom: 0.5rem !important;
+  }
+  .footer-section ul {
+    margin-bottom: 0.2em !important;
+    padding-left: 0 !important;
+  }
+  .footer-section ul li {
+    list-style: none !important;
+    margin-bottom: 0.2rem !important;
+  }
+  .footer-section ul li a {
+    font-size: 0.7rem !important;
+    line-height: 1.2 !important;
+    padding: 0.05em 0 !important;
+    display: block !important;
+  }
+  .footer-logo {
+    font-size: 1rem !important;
+    margin-bottom: 0.5rem !important;
+  }
+  .footer-logo i {
+    font-size: 1.2rem !important;
+    margin-right: 0.2rem !important;
+  }
+  .footer-logo-text span:first-child {
+    font-size: 1.1rem !important;
+  }
+  .footer-slogan {
+    font-size: 0.6rem !important;
+    max-width: 70px !important;
+  }
+  .footer-main-left p {
+    font-size: 0.7rem !important;
+    margin-bottom: 0.5rem !important;
+  }
+  /* 移除所有竖排、错位、极小行距的覆盖 */
+  .footer-columns-3col, .footer-columns-3col .footer-section {
+    all: unset;
+  }
+} 
+
+@media (max-width: 768px) {
+  .footer-section.footer-main-left > p,
+  .footer-main-left > p,
+  .footer-section > p {
+    font-size: 0.49rem !important;
+    margin-bottom: 0.5rem !important;
+  }
+  .footer-slogan {
+    font-size: 0.45rem !important;
+    white-space: pre-line !important;
+    display: block !important;
+    max-width: 70px !important;
+    line-height: 1.2 !important;
+    text-align: left !important;
+  }
+  .footer-section ul li a {
+    font-size: 0.7rem !important;
+    line-height: 1.5 !important;
+    padding: 0.05em 0 !important;
+    display: block !important;
+  }
+  .footer-bottom p {
+    white-space: nowrap !important;
+    word-break: keep-all !important;
+    font-size: 0.7rem !important;
+    overflow-x: auto;
   }
 } 
