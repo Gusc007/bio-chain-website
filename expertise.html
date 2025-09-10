@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>专业领域 - Bio-Chain</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        .expertise-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 40px 20px;
+            line-height: 1.8;
+        }
+        .expertise-content h1 {
+            color: #2c3e50;
+            margin-bottom: 30px;
+            text-align: center;
+            font-size: 2.5rem;
+        }
+        .expertise-content h2 {
+            color: #34495e;
+            margin-top: 40px;
+            margin-bottom: 20px;
+            font-size: 1.8rem;
+            border-bottom: 2px solid #3498db;
+            padding-bottom: 10px;
+        }
+        .expertise-content h3 {
+            color: #2c3e50;
+            margin-top: 30px;
+            margin-bottom: 15px;
+            font-size: 1.3rem;
+        }
+        .expertise-content p {
+            margin-bottom: 15px;
+            color: #555;
+        }
+        .expertise-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 30px;
+            margin: 40px 0;
+        }
+        .expertise-item {
+            background: #f8f9fa;
+            padding: 30px;
+            border-radius: 10px;
+            text-align: center;
+            transition: transform 0.3s ease;
+        }
+        .expertise-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+        }
+        .expertise-item i {
+            font-size: 3rem;
+            color: #3498db;
+            margin-bottom: 20px;
+        }
+        .expertise-item h3 {
+            color: #2c3e50;
+            margin-bottom: 15px;
+        }
+        .expertise-item p {
+            color: #666;
+            line-height: 1.6;
+        }
+        .back-link {
+            display: inline-block;
+            margin-bottom: 30px;
+            color: #3498db;
+            text-decoration: none;
+            font-weight: 500;
+        }
+        .back-link:hover {
+            text-decoration: underline;
+        }
+        .capabilities {
+            background: #e8f4fd;
+            padding: 30px;
+            border-radius: 10px;
+            margin: 30px 0;
+        }
+        .capabilities h3 {
+            color: #2c3e50;
+            margin-bottom: 20px;
+        }
+        .capabilities ul {
+            list-style: none;
+            padding: 0;
+        }
+        .capabilities li {
+            padding: 8px 0;
+            border-bottom: 1px solid #d1ecf1;
+        }
+        .capabilities li:before {
+            content: "✓";
+            color: #28a745;
+            font-weight: bold;
+            margin-right: 10px;
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar">
+        <div class="container">
+            <div class="nav-content">
+                <div class="logo">
+                    <img src="images/logo.png" alt="Bio-Chain Logo" class="logo-img">
+                </div>
+                <ul class="nav-menu">
+                    <li><a href="index.html">首页</a></li>
+                    <li><a href="about.html">关于我们</a></li>
+                    <li><a href="air-freight.html">服务</a></li>
+                    <li><a href="expertise.html" class="active">专业领域</a></li>
+                    <li><a href="index.html#contact">联系</a></li>
+                </ul>
+                <div class="nav-toggle">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <main>
+        <div class="expertise-content">
+            <a href="index.html" class="back-link">← 返回首页</a>
+            
+            <h1>我们的专业领域</h1>
+            <p style="text-align: center; font-size: 1.2rem; color: #666; margin-bottom: 40px;">
+                专业领域，卓越服务。我们专注于生物制品及药品物流运输的各个细分领域，为客户提供全方位的专业解决方案。
+            </p>
+
+            <div class="expertise-grid">
+                <div class="expertise-item">
+                    <i class="fas fa-flask"></i>
+                    <h3>生物样本运输</h3>
+                    <p>专业的生物样本运输服务，确保样本的完整性和活性。采用先进的温控技术和专业包装，保证运输过程中样本的稳定性。我们处理各种类型的生物样本，包括血液、组织、细胞、DNA等。</p>
+                </div>
+
+                <div class="expertise-item">
+                    <i class="fas fa-pills"></i>
+                    <h3>药品运输</h3>
+                    <p>符合GMP标准的药品运输，确保药品质量和安全。全程温控监控，满足各类药品的特殊运输要求。我们具备药品运输的完整资质和认证，严格按照药品运输规范执行。</p>
+                </div>
+
+                <div class="expertise-item">
+                    <i class="fas fa-microscope"></i>
+                    <h3>精密仪器运输</h3>
+                    <p>精密仪器的专业包装和运输，防止损坏和震动。采用防震包装技术和专业搬运设备，确保精密仪器在运输过程中的安全。我们处理各种科研仪器、医疗设备等。</p>
+                </div>
+
+                <div class="expertise-item">
+                    <i class="fas fa-thermometer-half"></i>
+                    <h3>温控运输</h3>
+                    <p>专业的温控运输解决方案，确保温度敏感货物在运输过程中的稳定性。实时温度监控和记录，支持2-8°C、-20°C、-80°C等多种温度要求。</p>
+                </div>
+
+                <div class="expertise-item">
+                    <i class="fas fa-shield-alt"></i>
+                    <h3>危险品运输</h3>
+                    <p>具备IATA危险品运输资质，安全运输各类危险品。严格按照国际危险品运输规范执行，确保运输安全和合规。我们处理生物危险品、化学危险品等。</p>
+                </div>
+
+                <div class="expertise-item">
+                    <i class="fas fa-globe"></i>
+                    <h3>国际运输</h3>
+                    <p>覆盖全球200多个国家和地区的国际运输服务。具备完整的国际运输资质和清关能力，为客户提供一站式国际物流解决方案。</p>
+                </div>
+            </div>
+
+            <h2>核心能力</h2>
+            <div class="capabilities">
+                <h3>技术能力</h3>
+                <ul>
+                    <li>先进的温控技术和设备</li>
+                    <li>实时货物跟踪系统</li>
+                    <li>专业的包装和防护技术</li>
+                    <li>数字化物流管理平台</li>
+                    <li>24/7监控和报警系统</li>
+                </ul>
+            </div>
+
+            <div class="capabilities">
+                <h3>服务能力</h3>
+                <ul>
+                    <li>门到门全程服务</li>
+                    <li>专业清关和文件处理</li>
+                    <li>多式联运协调</li>
+                    <li>紧急运输服务</li>
+                    <li>定制化解决方案</li>
+                </ul>
+            </div>
+
+            <div class="capabilities">
+                <h3>合规能力</h3>
+                <ul>
+                    <li>IATA危险品运输认证</li>
+                    <li>GMP药品运输认证</li>
+                    <li>ISO质量管理体系</li>
+                    <li>国际清关资质</li>
+                    <li>保险和风险管理</li>
+                </ul>
+            </div>
+
+            <h2>行业经验</h2>
+            <p>我们在以下行业拥有丰富的运输经验：</p>
+            <div class="expertise-grid">
+                <div class="expertise-item">
+                    <i class="fas fa-hospital"></i>
+                    <h3>医疗健康</h3>
+                    <p>为医院、诊所、医疗设备制造商提供专业的医疗用品和药品运输服务。</p>
+                </div>
+
+                <div class="expertise-item">
+                    <i class="fas fa-dna"></i>
+                    <h3>生物技术</h3>
+                    <p>为生物技术公司、科研院所提供生物样本、试剂、设备的专业运输服务。</p>
+                </div>
+
+                <div class="expertise-item">
+                    <i class="fas fa-vial"></i>
+                    <h3>制药行业</h3>
+                    <p>为制药企业提供原料药、成品药、疫苗等药品的专业运输服务。</p>
+                </div>
+
+                <div class="expertise-item">
+                    <i class="fas fa-graduation-cap"></i>
+                    <h3>科研教育</h3>
+                    <p>为大学、科研机构提供科研设备、实验材料、样本的专业运输服务。</p>
+                </div>
+            </div>
+
+            <h2>质量保证</h2>
+            <p>我们建立了完善的质量管理体系，确保每一项服务都达到最高标准：</p>
+            <ul>
+                <li><strong>标准化流程：</strong>建立标准化的操作流程，确保服务的一致性和可靠性</li>
+                <li><strong>质量控制：</strong>实施全程质量控制，从接收货物到最终交付的每个环节都有严格的质量检查</li>
+                <li><strong>持续改进：</strong>定期评估和改进服务质量，不断提升客户满意度</li>
+                <li><strong>培训体系：</strong>建立完善的员工培训体系，确保团队的专业水平</li>
+                <li><strong>客户反馈：</strong>建立客户反馈机制，及时响应客户需求和意见</li>
+            </ul>
+
+            <h2>联系我们</h2>
+            <p>如果您需要了解我们的专业服务，或者有特殊的运输需求，请随时联系我们：</p>
+            <div style="background: #f8f9fa; padding: 20px; border-radius: 8px; margin: 20px 0;">
+                <p><strong>Bio-Chain有限公司</strong></p>
+                <p><i class="fas fa-map-marker-alt"></i> 地址：上海市浦东新区航城七路785号A-412</p>
+                <p><i class="fas fa-phone"></i> 电话：+86 21 5049 8599</p>
+                <p><i class="fas fa-envelope"></i> 邮箱：info@bio-chain.cn</p>
+                <p><i class="fas fa-clock"></i> 工作时间：周一至周五 8:00-17:30 (CST)</p>
+            </div>
+        </div>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <div class="footer-logo">
+                        <i class="fas fa-dna"></i>
+                        <div class="footer-logo-text">
+                            <span>Bio-Chain</span>
+                            <span class="footer-slogan">CARE OF TIME AND TEMPERATURE</span>
+                        </div>
+                    </div>
+                    <p>专业生物制品及药品物流运输解决方案，致力于为全球客户提供安全、可靠、高效的运输服务。</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-linkedin"></i></a>
+                        <a href="#"><i class="fas fa-envelope"></i></a>
+                    </div>
+                </div>
+                
+                <div class="footer-section">
+                    <h4>服务项目</h4>
+                    <ul>
+                        <li><a href="air-freight.html">空运服务</a></li>
+                        <li><a href="air-freight.html">海运服务</a></li>
+                        <li><a href="air-freight.html">陆运服务</a></li>
+                        <li><a href="air-freight.html">仓储服务</a></li>
+                        <li><a href="air-freight.html">温控运输</a></li>
+                        <li><a href="air-freight.html">实时跟踪</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>公司信息</h4>
+                    <ul>
+                        <li><a href="about.html">关于我们</a></li>
+                        <li><a href="expertise.html">专业领域</a></li>
+                        <li><a href="index.html#contact">联系我们</a></li>
+                        <li><a href="careers.html">职业机会</a></li>
+                        <li><a href="news.html">新闻动态</a></li>
+                        <li><a href="partners.html">合作伙伴</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>法律条款</h4>
+                    <ul>
+                        <li><a href="privacy-policy.html">隐私政策</a></li>
+                        <li><a href="terms-of-service.html">服务条款</a></li>
+                        <li><a href="cookie-policy.html">Cookie政策</a></li>
+                        <li><a href="legal-notice.html">法律声明</a></li>
+                        <li><a href="disclaimer.html">免责声明</a></li>
+                        <li><a href="complaint-suggestion.html">投诉建议</a></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2025 Bio-Chain 有限公司. 保留所有权利. | <a href="terms-of-service.html">服务条款</a> | <a href="privacy-policy.html">隐私政策</a> | <a href="legal-notice.html">法律声明</a></p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/main.js"></script>
+</body>
+</html>

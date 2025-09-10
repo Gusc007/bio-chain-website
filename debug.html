@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>调试页面 - Bio-Chain</title>
+    <style>
+        body { 
+            font-family: Arial, sans-serif; 
+            padding: 20px; 
+            background: #f5f5f5;
+        }
+        .debug-section {
+            background: white;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        .test-link {
+            display: inline-block;
+            margin: 10px;
+            padding: 15px 25px;
+            background: #3498db;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            font-weight: bold;
+        }
+        .test-link:hover {
+            background: #2980b9;
+        }
+        .status {
+            padding: 10px;
+            margin: 10px 0;
+            border-radius: 4px;
+        }
+        .success { background: #d4edda; color: #155724; border: 1px solid #c3e6cb; }
+        .error { background: #f8d7da; color: #721c24; border: 1px solid #f5c6cb; }
+        .info { background: #d1ecf1; color: #0c5460; border: 1px solid #bee5eb; }
+    </style>
+</head>
+<body>
+    <h1>🔧 Bio-Chain 网站调试页面</h1>
+    
+    <div class="debug-section">
+        <h2>📁 文件检查</h2>
+        <div id="file-status"></div>
+    </div>
+    
+    <div class="debug-section">
+        <h2>🔗 链接测试</h2>
+        <p>点击以下链接测试是否正常工作：</p>
+        <a href="index.html" class="test-link" onclick="testLink(this)">首页 (index.html)</a>
+        <a href="privacy-policy.html" class="test-link" onclick="testLink(this)">隐私政策 (privacy-policy.html)</a>
+        <a href="about.html" class="test-link" onclick="testLink(this)">关于我们 (about.html)</a>
+        <a href="air-freight.html" class="test-link" onclick="testLink(this)">空运服务 (air-freight.html)</a>
+        <div id="link-results"></div>
+    </div>
+    
+    <div class="debug-section">
+        <h2>🌐 网络测试</h2>
+        <p>测试HTTP服务器访问：</p>
+        <a href="http://localhost:8080/index.html" class="test-link" target="_blank">HTTP访问首页</a>
+        <a href="http://localhost:8080/privacy-policy.html" class="test-link" target="_blank">HTTP访问隐私政策</a>
+    </div>
+    
+    <div class="debug-section">
+        <h2>💡 解决方案</h2>
+        <div class="info">
+            <h3>如果链接无法点击，请尝试：</h3>
+            <ol>
+                <li><strong>清除浏览器缓存：</strong>按 Ctrl+Shift+R (Windows) 或 Cmd+Shift+R (Mac)</li>
+                <li><strong>使用HTTP服务器：</strong>访问 <a href="http://localhost:8080/index.html">http://localhost:8080/index.html</a></li>
+                <li><strong>检查浏览器控制台：</strong>按 F12 查看是否有错误信息</li>
+                <li><strong>尝试不同浏览器：</strong>Chrome、Firefox、Safari等</li>
+                <li><strong>检查文件权限：</strong>确保文件有读取权限</li>
+            </ol>
+        </div>
+    </div>
+    
+    <div class="debug-section">
+        <h2>📊 系统信息</h2>
+        <div id="system-info"></div>
+    </div>
+
+    <script>
+        // 检查文件状态
+        function checkFiles() {
+            const files = ['index.html', 'privacy-policy.html', 'about.html', 'air-freight.html'];
+            const statusDiv = document.getElementById('file-status');
+            
+            files.forEach(file => {
+                fetch(file)
+                    .then(response => {
+                        const status = response.ok ? 'success' : 'error';
+                        const text = response.ok ? '✅ 存在' : '❌ 不存在';
+                        statusDiv.innerHTML += `<div class="status ${status}">${file}: ${text} (${response.status})</div>`;
+                    })
+                    .catch(error => {
+                        statusDiv.innerHTML += `<div class="status error">${file}: ❌ 错误 - ${error.message}</div>`;
+                    });
+            });
+        }
+        
+        // 测试链接点击
+        function testLink(link) {
+            const href = link.getAttribute('href');
+            const resultsDiv = document.getElementById('link-results');
+            
+            fetch(href)
+                .then(response => {
+                    const status = response.ok ? 'success' : 'error';
+                    const text = response.ok ? '✅ 链接正常' : '❌ 链接错误';
+                    resultsDiv.innerHTML += `<div class="status ${status}">${href}: ${text}</div>`;
+                })
+                .catch(error => {
+                    resultsDiv.innerHTML += `<div class="status error">${href}: ❌ 错误 - ${error.message}</div>`;
+                });
+        }
+        
+        // 显示系统信息
+        function showSystemInfo() {
+            const infoDiv = document.getElementById('system-info');
+            infoDiv.innerHTML = `
+                <div class="status info">
+                    <strong>用户代理：</strong>${navigator.userAgent}<br>
+                    <strong>当前URL：</strong>${window.location.href}<br>
+                    <strong>协议：</strong>${window.location.protocol}<br>
+                    <strong>主机：</strong>${window.location.host}<br>
+                    <strong>路径：</strong>${window.location.pathname}
+                </div>
+            `;
+        }
+        
+        // 页面加载时执行检查
+        window.addEventListener('load', function() {
+            checkFiles();
+            showSystemInfo();
+        });
+    </script>
+</body>
+</html>

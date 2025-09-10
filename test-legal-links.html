@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>法律条款链接测试 - Bio-Chain</title>
+    <style>
+        body { 
+            font-family: Arial, sans-serif; 
+            padding: 20px; 
+            background: #f5f5f5;
+        }
+        .test-container {
+            max-width: 800px;
+            margin: 0 auto;
+            background: white;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        .test-link {
+            display: block;
+            margin: 15px 0;
+            padding: 15px 20px;
+            background: #3498db;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            font-weight: bold;
+            text-align: center;
+        }
+        .test-link:hover {
+            background: #2980b9;
+        }
+        .status {
+            padding: 10px;
+            margin: 10px 0;
+            border-radius: 4px;
+        }
+        .success { background: #d4edda; color: #155724; border: 1px solid #c3e6cb; }
+        .error { background: #f8d7da; color: #721c24; border: 1px solid #f5c6cb; }
+        .info { background: #d1ecf1; color: #0c5460; border: 1px solid #bee5eb; }
+        h1 { color: #2c3e50; text-align: center; }
+        h2 { color: #34495e; border-bottom: 2px solid #3498db; padding-bottom: 10px; }
+    </style>
+</head>
+<body>
+    <div class="test-container">
+        <h1>🔗 法律条款链接测试</h1>
+        
+        <div class="info">
+            <h2>📋 测试说明</h2>
+            <p>点击下面的链接测试每个法律条款页面是否能正常打开。如果某个链接无法打开，请检查：</p>
+            <ul>
+                <li>文件是否存在</li>
+                <li>文件权限是否正确</li>
+                <li>浏览器是否支持该文件类型</li>
+                <li>是否有网络连接问题</li>
+            </ul>
+        </div>
+
+        <h2>🧪 链接测试</h2>
+        
+        <a href="privacy-policy.html" class="test-link" onclick="testLink(this, 'privacy-policy.html')">
+            🔒 隐私政策 (privacy-policy.html)
+        </a>
+        
+        <a href="terms-of-service.html" class="test-link" onclick="testLink(this, 'terms-of-service.html')">
+            📋 服务条款 (terms-of-service.html)
+        </a>
+        
+        <a href="cookie-policy.html" class="test-link" onclick="testLink(this, 'cookie-policy.html')">
+            🍪 Cookie政策 (cookie-policy.html)
+        </a>
+        
+        <a href="legal-notice.html" class="test-link" onclick="testLink(this, 'legal-notice.html')">
+            ⚖️ 法律声明 (legal-notice.html)
+        </a>
+        
+        <a href="disclaimer.html" class="test-link" onclick="testLink(this, 'disclaimer.html')">
+            ⚠️ 免责声明 (disclaimer.html)
+        </a>
+        
+        <a href="complaint-suggestion.html" class="test-link" onclick="testLink(this, 'complaint-suggestion.html')">
+            💬 投诉建议 (complaint-suggestion.html)
+        </a>
+
+        <div id="test-results"></div>
+
+        <h2>🔧 故障排除</h2>
+        <div class="info">
+            <h3>如果链接无法打开，请尝试：</h3>
+            <ol>
+                <li><strong>使用HTTP服务器：</strong>访问 <a href="http://localhost:8080/index.html">http://localhost:8080/index.html</a></li>
+                <li><strong>清除浏览器缓存：</strong>按 Ctrl+Shift+R (Windows) 或 Cmd+Shift+R (Mac)</li>
+                <li><strong>检查浏览器控制台：</strong>按 F12 查看是否有错误信息</li>
+                <li><strong>尝试不同浏览器：</strong>Chrome、Firefox、Safari等</li>
+                <li><strong>检查文件路径：</strong>确保所有文件都在同一目录下</li>
+            </ol>
+        </div>
+
+        <h2>📊 系统信息</h2>
+        <div id="system-info"></div>
+    </div>
+
+    <script>
+        function testLink(link, filename) {
+            const resultsDiv = document.getElementById('test-results');
+            
+            fetch(filename)
+                .then(response => {
+                    if (response.ok) {
+                        resultsDiv.innerHTML += `<div class="status success">✅ ${filename}: 链接正常 (${response.status})</div>`;
+                    } else {
+                        resultsDiv.innerHTML += `<div class="status error">❌ ${filename}: 链接错误 (${response.status})</div>`;
+                    }
+                })
+                .catch(error => {
+                    resultsDiv.innerHTML += `<div class="status error">❌ ${filename}: 网络错误 - ${error.message}</div>`;
+                });
+        }
+        
+        // 显示系统信息
+        window.addEventListener('load', function() {
+            const infoDiv = document.getElementById('system-info');
+            infoDiv.innerHTML = `
+                <div class="status info">
+                    <strong>当前URL：</strong>${window.location.href}<br>
+                    <strong>协议：</strong>${window.location.protocol}<br>
+                    <strong>主机：</strong>${window.location.host}<br>
+                    <strong>路径：</strong>${window.location.pathname}<br>
+                    <strong>用户代理：</strong>${navigator.userAgent}
+                </div>
+            `;
+        });
+    </script>
+</body>
+</html>
