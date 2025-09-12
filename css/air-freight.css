@@ -166,22 +166,7 @@ img {
     line-height: 1.7;
 }
 
-/* 页脚样式 */
-.footer .footer-content {
-    display: flex;
-    justify-content: flex-start;
-    align-items: flex-start;
-    text-align: left;
-}
-.footer .footer-section {
-    max-width: 800px;
-}
-.footer-description {
-    font-size: 1.2rem;
-    line-height: 1.6;
-    margin: 1rem 0;
-    color: #4a5568;
-}
+/* 页脚样式 - 移除覆盖，使用主CSS的样式 */
 
 /* 响应式设计 */
 @media (max-width: 768px) {

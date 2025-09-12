@@ -1,0 +1,1157 @@
+/* 基础样式 */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Inter', sans-serif;
+    line-height: 1.6;
+    color: #2c3e50;
+    background: #ffffff;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/* 导航栏 */
+.navbar {
+    background: #ffffff;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 1000;
+}
+
+.nav-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 0;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: #1a365d;
+}
+
+.logo-img {
+    height: 40px;
+    width: auto;
+    object-fit: contain;
+}
+
+.logo i {
+    font-size: 2rem;
+    color: #2c5282;
+}
+
+.nav-menu {
+    display: flex;
+    list-style: none;
+    gap: 2rem;
+}
+
+.nav-menu a {
+    text-decoration: none;
+    color: #2c3e50;
+    font-weight: 500;
+    transition: color 0.3s;
+}
+
+.nav-menu a:hover {
+    color: #2c5282;
+}
+
+.nav-toggle {
+    display: none;
+    flex-direction: column;
+    cursor: pointer;
+}
+
+.nav-toggle span {
+    width: 25px;
+    height: 3px;
+    background: #2c3e50;
+    margin: 3px 0;
+    transition: 0.3s;
+}
+
+/* 按钮 */
+.btn {
+    display: inline-block;
+    padding: 12px 24px;
+    background: #2c5282;
+    color: white;
+    text-decoration: none;
+    border-radius: 4px;
+    border: none;
+    cursor: pointer;
+    font-weight: 500;
+    transition: background 0.3s;
+}
+
+.btn:hover {
+    background: #1a365d;
+}
+
+.btn-secondary {
+    background: transparent;
+    color: #2c5282;
+    border: 2px solid #2c5282;
+}
+
+.btn-secondary:hover {
+    background: #2c5282;
+    color: white;
+}
+
+/* 首页 */
+.hero {
+    background: linear-gradient(180deg, #a8e0d0 0%, #8dd4c0 50%, #72c8b0 100%);
+    color: #2c3e50;
+    text-align: center;
+    padding: 120px 0 80px;
+}
+
+.hero-content h1 {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+    color: #1a365d;
+    font-weight: 700;
+}
+
+.hero-subtitle {
+    font-size: 1.2rem;
+    margin-bottom: 2rem;
+    color: #4a5568;
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.hero-actions {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+/* 特色服务 */
+.features {
+    padding: 60px 0;
+    background: #ffffff;
+}
+
+.features-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+}
+
+.feature {
+    text-align: center;
+    padding: 2rem;
+    background: linear-gradient(180deg, #a8e0d0 0%, #8dd4c0 50%, #72c8b0 100%);
+    border-radius: 8px;
+    border: 1px solid #e2e8f0;
+}
+
+.feature i {
+    font-size: 2.5rem;
+    color: #2c5282;
+    margin-bottom: 1rem;
+}
+
+.feature h3 {
+    font-size: 1.2rem;
+    margin-bottom: 0.5rem;
+    color: #1a365d;
+}
+
+.feature p {
+    color: #4a5568;
+    font-size: 0.9rem;
+}
+
+/* 关于我们 */
+.about {
+    padding: 80px 0;
+    background: #ffffff;
+    text-align: center;
+}
+
+.about h2 {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+    color: #1a365d;
+}
+
+.about-subtitle {
+    font-size: 1.1rem;
+    color: #4a5568;
+    max-width: 600px;
+    margin: 0 auto 3rem;
+}
+
+.stats {
+    display: flex;
+    justify-content: center;
+    gap: 3rem;
+    flex-wrap: wrap;
+    margin-bottom: 4rem;
+}
+
+.stat {
+    text-align: center;
+}
+
+.number {
+    display: block;
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: #2c5282;
+}
+
+.label {
+    color: #4a5568;
+    font-weight: 500;
+}
+
+.about-content {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    text-align: left;
+}
+
+.about-item h3 {
+    color: #1a365d;
+    margin-bottom: 1rem;
+    font-size: 1.2rem;
+}
+
+.about-item p {
+    color: #4a5568;
+    line-height: 1.7;
+}
+
+/* 服务 */
+.services {
+    padding: 80px 0;
+    background: linear-gradient(180deg, #a8e0d0 0%, #8dd4c0 50%, #72c8b0 100%);
+}
+
+.services h2 {
+    text-align: center;
+    font-size: 2rem;
+    margin-bottom: 1rem;
+    color: #1a365d;
+}
+
+.services-subtitle {
+    text-align: center;
+    color: #4a5568;
+    margin-bottom: 3rem;
+}
+
+/* 服务区块四列布局，卡片圆角加大，宽度拉长 */
+.services-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 2.5rem;
+    max-width: 1400px;
+    margin: 0 auto 3rem auto;
+}
+
+.service {
+    background: #ffffff;
+    border: 1px solid #e2e8f0;
+    border-radius: 8px;
+    min-width: 0;
+    min-height: 320px;
+    padding: 2.5rem 2rem;
+    transition: box-shadow 0.3s;
+}
+
+@media (max-width: 1200px) {
+    .services-grid {
+        max-width: 1000px;
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+@media (max-width: 768px) {
+    .services-grid {
+        grid-template-columns: 1fr;
+        max-width: 100%;
+    }
+    .service {
+        min-height: unset;
+        padding: 2rem 1.2rem;
+    }
+}
+
+.service:hover {
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.service i {
+    font-size: 3rem;
+    color: #2c5282;
+    margin-bottom: 1rem;
+}
+
+.service h3 {
+    font-size: 1.3rem;
+    margin-bottom: 1rem;
+    color: #1a365d;
+}
+
+.service p {
+    color: #4a5568;
+}
+
+.service p:nth-of-type(2) {
+    margin-top: 0.8em;
+    text-align: left;
+    padding-left: 0.5em;
+}
+
+.service-features {
+    background: white;
+    padding: 2rem;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.feature-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1rem;
+}
+
+.feature-item {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    color: #4a5568;
+    font-weight: 500;
+}
+
+/* 专业领域 */
+.expertise {
+    padding: 80px 0;
+    background: #ffffff;
+}
+
+.expertise h2 {
+    text-align: center;
+    font-size: 2rem;
+    margin-bottom: 1rem;
+    color: #1a365d;
+}
+
+.expertise-subtitle {
+    text-align: center;
+    color: #4a5568;
+    margin-bottom: 3rem;
+}
+
+.expertise-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    gap: 2rem;
+}
+
+.expertise-item {
+    padding: 2rem;
+    border: 1px solid #e2e8f0;
+    border-radius: 8px;
+    transition: box-shadow 0.3s;
+    background: linear-gradient(180deg, #a8e0d0 0%, #8dd4c0 50%, #72c8b0 100%);
+}
+
+.expertise-item:hover {
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.expertise-item i {
+    font-size: 2.5rem;
+    color: #2c5282;
+    margin-bottom: 1rem;
+}
+
+.expertise-item h3 {
+    font-size: 1.3rem;
+    margin-bottom: 1rem;
+    color: #1a365d;
+}
+
+.expertise-item p {
+    color: #4a5568;
+    line-height: 1.7;
+}
+
+/* 联系我们 */
+.contact {
+    padding: 80px 0;
+    background: linear-gradient(180deg, #a8e0d0 0%, #8dd4c0 50%, #72c8b0 100%);
+}
+
+.contact h2 {
+    text-align: center;
+    font-size: 2rem;
+    margin-bottom: 1rem;
+    color: #1a365d;
+}
+
+.contact-subtitle {
+    text-align: center;
+    color: #4a5568;
+    margin-bottom: 3rem;
+}
+
+.contact-content {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 3rem;
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+.contact-info {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+
+.contact-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 1rem;
+}
+
+.contact-item i {
+    font-size: 1.5rem;
+    color: #2c5282;
+    width: 30px;
+    margin-top: 0.2rem;
+}
+
+.contact-item h3 {
+    color: #1a365d;
+    margin-bottom: 0.5rem;
+    font-size: 1.1rem;
+}
+
+.contact-item p {
+    color: #4a5568;
+    margin-bottom: 0.2rem;
+}
+
+.contact-form {
+    background: white;
+    padding: 2rem;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    border: 1px solid #e2e8f0;
+}
+
+.contact-form h3 {
+    color: #1a365d;
+    margin-bottom: 1.5rem;
+    text-align: center;
+}
+
+.contact-form input,
+.contact-form textarea,
+.contact-form select {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #e2e8f0;
+    border-radius: 4px;
+    font-family: inherit;
+    margin-bottom: 1rem;
+    transition: border-color 0.3s;
+}
+
+.contact-form input:focus,
+.contact-form textarea:focus,
+.contact-form select:focus {
+    outline: none;
+    border-color: #2c5282;
+}
+
+/* 页脚 */
+.footer {
+    background: linear-gradient(180deg, #4f9fd1 0%, #2e6c9a 50%, #1a3c5a 100%);
+    color: #ffffff;
+    padding: 2.97rem 0 0.7rem;
+    border-top: none;
+}
+
+.footer-content {
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr 1fr;
+    gap: 2rem;
+    margin-bottom: 2rem;
+    position: relative;
+    top: -10%;
+}
+
+.footer-logo {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: #ffffff;
+    margin-bottom: 1rem;
+}
+
+.footer-logo-text {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.footer-slogan {
+    font-size: 0.6rem;
+    font-weight: 400;
+    letter-spacing: 0.5px;
+    margin-top: -0.2em;
+    line-height: 1.2;
+    max-width: 120px;
+    word-wrap: break-word;
+}
+
+.footer-logo i {
+    font-size: 2rem;
+    color: #ffffff;
+}
+
+.footer-section p,
+.footer-section h4,
+.footer-section ul li a,
+.footer-bottom p,
+.social-links a {
+    color: #ffffff !important;
+}
+
+.footer-section p {
+    margin-bottom: 1rem;
+    line-height: 1.6;
+    font-size: 0.9rem;
+}
+
+.footer-section h4 {
+    margin-bottom: 1rem;
+    font-size: 1rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.footer-section ul {
+    list-style: none;
+}
+
+.footer-section ul li {
+    margin-bottom: 0.5rem;
+}
+
+.footer-section ul li a {
+    text-decoration: none;
+    transition: color 0.3s;
+    font-size: 0.9rem;
+}
+
+.footer-section ul li a:hover {
+    text-decoration: underline;
+}
+
+.social-links {
+    display: flex;
+    gap: 1rem;
+    margin-top: 1rem;
+}
+
+.social-links a {
+    text-decoration: none;
+    transition: color 0.3s;
+    font-size: 1.2rem;
+}
+
+.social-links a:hover {
+    color: #8db0d6;
+}
+
+.footer-bottom {
+    padding-top: 1.1rem;
+    padding-bottom: 1.1rem;
+    text-align: center;
+    background: #2e9cc4;
+    width: 100vw;
+    min-width: 100vw;
+    box-sizing: border-box;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-top: none;
+    position: static;
+    left: auto;
+    right: auto;
+    bottom: auto;
+    z-index: auto;
+    margin-left: calc(-50vw + 50%);
+}
+.footer-bottom p {
+    font-size: 0.85rem;
+    margin: 0;
+}
+
+/* 注释掉所有移动端响应式，仅保留桌面端样式 */
+/*
+@media (max-width: 768px) {
+    .nav-menu {
+        position: fixed;
+        top: 60px;
+        left: 0;
+        right: 0;
+        background: white;
+        flex-direction: column;
+        padding: 2rem 1rem;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        max-height: 0;
+        overflow: hidden;
+        opacity: 0;
+        visibility: hidden;
+        transition: max-height 0.35s cubic-bezier(.4,0,.2,1), opacity 0.35s, visibility 0.35s;
+    }
+    .nav-menu.active {
+        max-height: 500px;
+        opacity: 1;
+        visibility: visible;
+    }
+    .nav-toggle {
+        display: flex;
+    }
+    
+    .hero-content h1 {
+        font-size: 2rem;
+    }
+    
+    .hero-actions {
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    .stats {
+        flex-direction: column;
+        gap: 2rem;
+    }
+    
+    .contact-content {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+    }
+    
+    .services-grid,
+    .expertise-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .feature-list {
+        grid-template-columns: 1fr;
+    }
+    
+    .footer-content {
+        grid-template-columns: 1fr;
+        text-align: center;
+        gap: 2rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .container {
+        padding: 0 15px;
+    }
+    
+    .hero {
+        padding: 100px 0 60px;
+    }
+    
+    .hero-content h1 {
+        font-size: 1.8rem;
+    }
+    
+    .about h2,
+    .services h2,
+    .expertise h2,
+    .contact h2 {
+        font-size: 1.5rem;
+    }
+    
+    .about-content {
+        grid-template-columns: 1fr;
+    }
+} 
+*/
+
+/* 服务卡片要点横向排列 */
+.service-points {
+    display: flex;
+    justify-content: center;
+    gap: 1.2rem;
+    margin-top: 1.2rem;
+    flex-wrap: wrap;
+}
+.service-points span {
+    color: #2c5282;
+    font-weight: 600;
+    font-size: 1rem;
+    background: linear-gradient(180deg, #a8e0d0 0%, #8dd4c0 50%, #72c8b0 100%);
+    border-radius: 16px;
+    padding: 0.3em 1em;
+    display: inline-block;
+    border: 1px solid #cbd5e0;
+} 
+
+/* 恢复并优化内容区的响应式样式，移动端更协调美观 */
+@media (max-width: 768px) {
+    .nav-menu {
+        position: fixed;
+        top: 60px;
+        left: 0;
+        right: 0;
+        background: white;
+        flex-direction: column;
+        padding: 2rem 1rem;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        max-height: 0;
+        overflow: hidden;
+        opacity: 0;
+        visibility: hidden;
+        transition: max-height 0.35s cubic-bezier(.4,0,.2,1), opacity 0.35s, visibility 0.35s;
+    }
+    .nav-menu.active {
+        max-height: 500px;
+        opacity: 1;
+        visibility: visible;
+    }
+    .nav-toggle {
+        display: flex;
+    }
+    .hero-content h1 {
+        font-size: 2rem;
+    }
+    .hero-subtitle {
+        font-size: 1rem;
+    }
+    .hero-actions {
+        flex-direction: column;
+        align-items: center;
+        gap: 1rem;
+    }
+    .features-grid,
+    .about-content,
+    .services-grid,
+    .expertise-grid,
+    .feature-list {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+    }
+    .service,
+    .expertise-item,
+    .feature {
+        padding: 1.2rem 1rem;
+        min-height: unset;
+    }
+    .stats {
+        flex-direction: column;
+        gap: 1.5rem;
+    }
+    .contact-content {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+    }
+    .footer-content {
+        grid-template-columns: 1fr;
+        text-align: center;
+        gap: 1.5rem;
+    }
+    .footer-logo {
+        justify-content: center;
+    }
+    .footer-section {
+        align-items: center;
+    }
+    .service-img,
+    .feature img {
+        max-width: 100%;
+        height: auto;
+    }
+}
+@media (max-width: 480px) {
+    .container {
+        padding: 0 10px;
+    }
+    .hero {
+        padding: 60px 0 40px;
+    }
+    .hero-content h1 {
+        font-size: 1.3rem;
+    }
+    .about h2,
+    .services h2,
+    .expertise h2,
+    .contact h2 {
+        font-size: 1.1rem;
+    }
+    .about-content,
+    .features-grid,
+    .services-grid,
+    .expertise-grid {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+    }
+    .service,
+    .expertise-item,
+    .feature {
+        padding: 1rem 0.5rem;
+    }
+    .service-img,
+    .feature img {
+        height: auto;
+        max-width: 100%;
+    }
+    .footer-content {
+        gap: 1rem;
+    }
+} 
+
+@media (max-width: 768px) {
+  /* 联系方式和表单上下排列 */
+  .contact-content {
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 2rem !important;
+  }
+  .contact-info,
+  .contact-form {
+    width: 100% !important;
+    margin: 0 auto !important;
+    box-sizing: border-box;
+  }
+  .contact-form input,
+  .contact-form textarea,
+  .contact-form select,
+  .contact-form button {
+    width: 100% !important;
+    box-sizing: border-box;
+  }
+  .contact-form button {
+    margin-top: 1rem;
+    min-width: 120px;
+    padding: 12px 0;
+    font-size: 1rem;
+  }
+  /* 页脚横向多列，移除单列样式 */
+  /*
+  .footer-content {
+    display: flex !important;
+    flex-direction: column !important;
+    grid-template-columns: none !important;
+    gap: 1.2rem !important;
+    text-align: center !important;
+    align-items: center !important;
+  }
+  .footer-section {
+    width: 100% !important;
+    margin-bottom: 0.5rem;
+  }
+  .footer-section ul {
+    padding: 0;
+    margin: 0 auto;
+    display: inline-block;
+    text-align: left;
+  }
+  */
+  .footer-logo {
+    font-size: 1.1rem !important;
+  }
+  .footer-logo i {
+    font-size: 1.5rem !important;
+  }
+  .footer-logo-text {
+    font-size: 0.9rem !important;
+  }
+  .footer-slogan {
+    font-size: 0.5rem !important;
+    max-width: 90px !important;
+  }
+  .footer-section,
+  .footer-section h4,
+  .footer-section ul li a,
+  .footer-section p {
+    font-size: 0.9rem !important;
+  }
+  .footer-bottom p {
+    font-size: 0.7rem !important;
+  }
+} 
+
+/* ======= 页脚布局重定义，彻底清理重复和!important ======= */
+.footer-content {
+  display: grid;
+  grid-template-columns: 1.5fr 1fr 1fr 1fr;
+  gap: 2rem;
+  margin-bottom: 2rem;
+  align-items: flex-start;
+}
+@media (max-width: 1200px) {
+  .footer-content {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+@media (max-width: 768px) {
+  .footer-content {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+} 
+
+@media (max-width: 768px) {
+  .footer-columns-3col {
+    display: flex !important;
+    flex-direction: row !important;
+    justify-content: space-between !important;
+    align-items: flex-start !important;
+    gap: 0.1rem !important;
+    width: 100% !important;
+    margin-top: 0.2rem !important;
+    margin-left: 0 !important;
+  }
+  .footer-columns-3col .footer-section {
+    flex: 1 1 0 !important;
+    min-width: 0 !important;
+    padding: 0 0.1rem !important;
+    margin: 0 !important;
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: flex-start !important;
+    width: 100% !important;
+  }
+  .footer-section ul {
+    margin-bottom: 0.2em !important;
+    padding-left: 0 !important;
+  }
+  .footer-section ul li {
+    list-style: none !important;
+  }
+  .footer-section ul li a {
+    font-size: 0.7rem !important;
+    line-height: 1.2 !important;
+    padding: 0.05em 0 !important;
+    display: block !important;
+  }
+  .footer-section h4 {
+    font-size: 0.9rem !important;
+    margin: 0.5em 0 0.2em 0 !important;
+  }
+} 
+
+@media (max-width: 768px) {
+  .footer-columns-3col {
+    margin-left: 1.2rem;
+  }
+  .footer-section ul li a {
+    line-height: 0.11 !important; /* 恢复为上上步的行距 */
+    padding: 0.005em 0;
+  }
+} 
+
+/* 清理所有移动端页脚竖排、错位、极小行距的CSS，恢复横向并排4列，仅缩小字体和间距 */
+@media (max-width: 768px) {
+  .footer-content {
+    display: grid !important;
+    grid-template-columns: 2fr 1fr 1fr 1fr !important;
+    gap: 0.5rem !important;
+    margin-bottom: 1rem !important;
+    position: static !important;
+    top: auto !important;
+    text-align: left !important;
+  }
+  .footer-section, .footer-main-left {
+    font-size: 0.8rem !important;
+    margin-bottom: 0 !important;
+    padding: 0 0.1rem !important;
+  }
+  .footer-section h4 {
+    font-size: 0.9rem !important;
+    margin-bottom: 0.5rem !important;
+  }
+  .footer-section ul {
+    margin-bottom: 0.2em !important;
+    padding-left: 0 !important;
+  }
+  .footer-section ul li {
+    list-style: none !important;
+    margin-bottom: 0.2rem !important;
+  }
+  .footer-section ul li a {
+    font-size: 0.7rem !important;
+    line-height: 1.2 !important;
+    padding: 0.05em 0 !important;
+    display: block !important;
+  }
+  .footer-logo {
+    font-size: 1rem !important;
+    margin-bottom: 0.5rem !important;
+  }
+  .footer-logo i {
+    font-size: 1.2rem !important;
+    margin-right: 0.2rem !important;
+  }
+  .footer-logo-text span:first-child {
+    font-size: 1.1rem !important;
+  }
+  .footer-slogan {
+    font-size: 0.6rem !important;
+    max-width: 70px !important;
+  }
+  .footer-main-left p {
+    font-size: 0.7rem !important;
+    margin-bottom: 0.5rem !important;
+  }
+  /* 移除所有竖排、错位、极小行距的覆盖 */
+  .footer-columns-3col, .footer-columns-3col .footer-section {
+    all: unset;
+  }
+} 
+
+@media (max-width: 768px) {
+  .footer-section.footer-main-left > p,
+  .footer-main-left > p,
+  .footer-section > p {
+    font-size: 0.49rem !important;
+    margin-bottom: 0.5rem !important;
+  }
+  .footer-slogan {
+    font-size: 0.45rem !important;
+    white-space: pre-line !important;
+    display: block !important;
+    max-width: 70px !important;
+    line-height: 1.2 !important;
+    text-align: left !important;
+  }
+  .footer-section ul li a {
+    font-size: 0.7rem !important;
+    line-height: 1.5 !important;
+    padding: 0.05em 0 !important;
+    display: block !important;
+  }
+  .footer-bottom p {
+    white-space: nowrap !important;
+    word-break: keep-all !important;
+    font-size: 0.7rem !important;
+    overflow-x: auto;
+  }
+} 
+
+/* 清理所有移动端页脚竖排、错位、极小行距的CSS，恢复横向并排4列，仅缩小字体和间距 */
+@media (max-width: 768px) {
+  .footer-content {
+    display: grid !important;
+    grid-template-columns: 2fr 1fr 1fr 1fr !important;
+    gap: 0.5rem !important;
+    margin-bottom: 1rem !important;
+    position: static !important;
+    top: auto !important;
+    text-align: left !important;
+  }
+  .footer-section, .footer-main-left {
+    font-size: 0.8rem !important;
+    margin-bottom: 0 !important;
+    padding: 0 0.1rem !important;
+  }
+  .footer-section h4 {
+    font-size: 0.9rem !important;
+    margin-bottom: 0.5rem !important;
+  }
+  .footer-section ul {
+    margin-bottom: 0.2em !important;
+    padding-left: 0 !important;
+  }
+  .footer-section ul li {
+    list-style: none !important;
+    margin-bottom: 0.2rem !important;
+  }
+  .footer-section ul li a {
+    font-size: 0.7rem !important;
+    line-height: 1.2 !important;
+    padding: 0.05em 0 !important;
+    display: block !important;
+  }
+  .footer-logo {
+    font-size: 1rem !important;
+    margin-bottom: 0.5rem !important;
+  }
+  .footer-logo i {
+    font-size: 1.2rem !important;
+    margin-right: 0.2rem !important;
+  }
+  .footer-logo-text span:first-child {
+    font-size: 1.1rem !important;
+  }
+  .footer-slogan {
+    font-size: 0.6rem !important;
+    max-width: 70px !important;
+  }
+  .footer-main-left p {
+    font-size: 0.7rem !important;
+    margin-bottom: 0.5rem !important;
+  }
+  /* 移除所有竖排、错位、极小行距的覆盖 */
+  .footer-columns-3col, .footer-columns-3col .footer-section {
+    all: unset;
+  }
+} 
+
+@media (max-width: 768px) {
+  .footer-section.footer-main-left > p,
+  .footer-main-left > p,
+  .footer-section > p {
+    font-size: 0.49rem !important;
+    margin-bottom: 0.5rem !important;
+  }
+  .footer-slogan {
+    font-size: 0.45rem !important;
+    white-space: pre-line !important;
+    display: block !important;
+    max-width: 70px !important;
+    line-height: 1.2 !important;
+    text-align: left !important;
+  }
+  .footer-section ul li a {
+    font-size: 0.7rem !important;
+    line-height: 1.5 !important;
+    padding: 0.05em 0 !important;
+    display: block !important;
+  }
+  .footer-bottom p {
+    white-space: nowrap !important;
+    word-break: keep-all !important;
+    font-size: 0.7rem !important;
+    overflow-x: auto;
+  }
+} 

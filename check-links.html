@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>链接检查工具 - Bio-Chain</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            line-height: 1.6;
+        }
+        .check-item {
+            padding: 10px;
+            margin: 5px 0;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+        .success { background-color: #d4edda; border-color: #c3e6cb; }
+        .error { background-color: #f8d7da; border-color: #f5c6cb; }
+        .warning { background-color: #fff3cd; border-color: #ffeaa7; }
+        h1 { color: #2c3e50; }
+        h2 { color: #34495e; margin-top: 30px; }
+        .status { font-weight: bold; }
+    </style>
+</head>
+<body>
+    <h1>Bio-Chain 网站链接检查</h1>
+    <p>此页面用于检查网站内部链接的完整性。</p>
+    
+    <h2>主要页面检查</h2>
+    <div id="main-pages"></div>
+    
+    <h2>服务页面检查</h2>
+    <div id="service-pages"></div>
+    
+    <h2>公司信息页面检查</h2>
+    <div id="company-pages"></div>
+    
+    <h2>法律条款页面检查</h2>
+    <div id="legal-pages"></div>
+    
+    <h2>图片资源检查</h2>
+    <div id="image-resources"></div>
+    
+    <script>
+        // 检查页面是否存在
+        function checkPage(url, containerId, pageName) {
+            const container = document.getElementById(containerId);
+            const checkItem = document.createElement('div');
+            checkItem.className = 'check-item';
+            
+            fetch(url)
+                .then(response => {
+                    if (response.ok) {
+                        checkItem.className += ' success';
+                        checkItem.innerHTML = `<span class="status">✓</span> ${pageName} - 页面正常`;
+                    } else {
+                        checkItem.className += ' error';
+                        checkItem.innerHTML = `<span class="status">✗</span> ${pageName} - 页面不存在 (${response.status})`;
+                    }
+                })
+                .catch(error => {
+                    checkItem.className += ' error';
+                    checkItem.innerHTML = `<span class="status">✗</span> ${pageName} - 检查失败: ${error.message}`;
+                });
+            
+            container.appendChild(checkItem);
+        }
+        
+        // 检查图片是否存在
+        function checkImage(url, containerId, imageName) {
+            const container = document.getElementById(containerId);
+            const checkItem = document.createElement('div');
+            checkItem.className = 'check-item';
+            
+            const img = new Image();
+            img.onload = function() {
+                checkItem.className += ' success';
+                checkItem.innerHTML = `<span class="status">✓</span> ${imageName} - 图片正常`;
+                container.appendChild(checkItem);
+            };
+            img.onerror = function() {
+                checkItem.className += ' error';
+                checkItem.innerHTML = `<span class="status">✗</span> ${imageName} - 图片不存在`;
+                container.appendChild(checkItem);
+            };
+            img.src = url;
+        }
+        
+        // 主要页面
+        checkPage('index.html', 'main-pages', '首页');
+        checkPage('about.html', 'main-pages', '关于我们');
+        checkPage('expertise.html', 'main-pages', '专业领域');
+        
+        // 服务页面
+        checkPage('air-freight.html', 'service-pages', '空运服务');
+        checkPage('ocean-freight.html', 'service-pages', '海运服务');
+        checkPage('land-freight.html', 'service-pages', '陆运服务');
+        checkPage('warehousing.html', 'service-pages', '仓储服务');
+        checkPage('temperature-control.html', 'service-pages', '温控运输');
+        checkPage('tracking.html', 'service-pages', '实时跟踪');
+        
+        // 公司信息页面
+        checkPage('careers.html', 'company-pages', '职业机会');
+        checkPage('news.html', 'company-pages', '新闻动态');
+        checkPage('partners.html', 'company-pages', '合作伙伴');
+        
+        // 法律条款页面
+        checkPage('privacy-policy.html', 'legal-pages', '隐私政策');
+        checkPage('terms-of-service.html', 'legal-pages', '服务条款');
+        checkPage('cookie-policy.html', 'legal-pages', 'Cookie政策');
+        checkPage('legal-notice.html', 'legal-pages', '法律声明');
+        checkPage('disclaimer.html', 'legal-pages', '免责声明');
+        checkPage('complaint-suggestion.html', 'legal-pages', '投诉建议');
+        
+        // 图片资源
+        checkImage('images/logo.png', 'image-resources', 'Logo');
+        checkImage('images/air-freight.jpg', 'image-resources', '空运服务图片');
+        checkImage('images/ocean-freight.jpg', 'image-resources', '海运服务图片');
+        checkImage('images/express-shipping.jpg', 'image-resources', '快递服务图片');
+        checkImage('images/warehousing.jpg', 'image-resources', '仓储服务图片');
+        checkImage('images/healthcare-solutions.jpg', 'image-resources', '医疗解决方案图片');
+        checkImage('images/customs-clearance.jpg', 'image-resources', '清关服务图片');
+        checkImage('images/tailored-services.jpg', 'image-resources', '定制服务图片');
+        checkImage('images/cflp-logo.svg', 'image-resources', 'CFLP Logo');
+        checkImage('images/gla-logo.svg', 'image-resources', 'GLA Logo');
+        checkImage('images/wca-logo.svg', 'image-resources', 'WCA Logo');
+    </script>
+</body>
+</html>
