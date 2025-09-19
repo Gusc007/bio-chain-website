@@ -43,7 +43,7 @@ body {
     gap: 10px;
     font-size: 1.5rem;
     font-weight: 700;
-    color: #1a365d;
+    color: #1e3a8a;
 }
 
 .logo-img {
@@ -54,7 +54,7 @@ body {
 
 .logo i {
     font-size: 2rem;
-    color: #2c5282;
+    color: #059669;
 }
 
 .nav-menu {
@@ -71,7 +71,7 @@ body {
 }
 
 .nav-menu a:hover {
-    color: #2c5282;
+    color: #059669;
 }
 
 .nav-toggle {
@@ -155,7 +155,7 @@ main {
 /* 特色服务 */
 .features {
     padding: 80px 0;
-    background: #ffffff;
+    background: #f8fafc;
 }
 
 .features-grid {
@@ -169,9 +169,11 @@ main {
 .feature {
     text-align: center;
     padding: 2rem;
-    background: #f8fafc;
+    background: #ffffff;
     border-radius: 12px;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
+    border: 2px solid #059669;
+    box-shadow: 0 4px 15px rgba(5, 150, 105, 0.1);
 }
 
 .feature:hover {
@@ -181,32 +183,32 @@ main {
 
 .feature i {
     font-size: 3rem;
-    color: #2c5282;
+    color: #059669;
     margin-bottom: 1.5rem;
 }
 
 .feature h3 {
     font-size: 1.5rem;
-    color: #1a365d;
+    color: #1e3a8a;
     margin-bottom: 1rem;
     font-weight: 600;
 }
 
 .feature p {
-    color: #4a5568;
+    color: #1f2937;
     font-size: 1.1rem;
 }
 
 /* 关于我们 */
 .about {
     padding: 80px 0;
-    background: linear-gradient(135deg, #f7fafc 0%, #edf2f7 100%);
+    background: #ffffff;
 }
 
 .about h2 {
     text-align: center;
     font-size: 2.5rem;
-    color: #1a365d;
+    color: #1e3a8a;
     margin-bottom: 1rem;
     font-weight: 600;
 }
@@ -214,52 +216,54 @@ main {
 .about-subtitle {
     text-align: center;
     font-size: 1.2rem;
-    color: #4a5568;
+    color: #1f2937;
     margin-bottom: 3rem;
 }
 
 .stats {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    grid-template-columns: repeat(4, 1fr);
     gap: 2rem;
-    max-width: 800px;
+    max-width: 1000px;
     margin: 0 auto 4rem;
 }
 
 .stat {
     text-align: center;
     padding: 2rem;
-    background: #ffffff;
+    background: #f8fafc;
     border-radius: 12px;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 4px 15px rgba(30, 58, 138, 0.1);
+    border: 2px solid #1e3a8a;
 }
 
 .stat .number {
     display: block;
     font-size: 3rem;
     font-weight: 700;
-    color: #2c5282;
+    color: #059669;
     margin-bottom: 0.5rem;
 }
 
 .stat .label {
     font-size: 1.1rem;
-    color: #4a5568;
+    color: #1f2937;
 }
 
 .about-content {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-    gap: 3rem;
-    max-width: 1000px;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+    max-width: 1200px;
     margin: 0 auto;
 }
 
 .about-item {
-    background: #ffffff;
+    background: linear-gradient(180deg, #a8e0d0 0%, #8dd4c0 50%, #72c8b0 100%);
     padding: 2.5rem;
     border-radius: 12px;
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    border: 1px solid #e2e8f0;
 }
 
 .about-item h3 {
@@ -277,13 +281,13 @@ main {
 /* 服务展示 */
 .services {
     padding: 80px 0;
-    background: #ffffff;
+    background: #f8fafc;
 }
 
 .services h2 {
     text-align: center;
     font-size: 2.5rem;
-    color: #1a365d;
+    color: #1e3a8a;
     margin-bottom: 1rem;
     font-weight: 600;
 }
@@ -291,25 +295,26 @@ main {
 .services-subtitle {
     text-align: center;
     font-size: 1.2rem;
-    color: #4a5568;
+    color: #1f2937;
     margin-bottom: 3rem;
 }
 
 .services-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 2.5rem;
-    max-width: 1000px;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 2rem;
+    max-width: 1200px;
     margin: 0 auto;
 }
 
 .service {
-    background: #f8fafc;
+    background: #ffffff;
     padding: 2.5rem;
     border-radius: 12px;
     text-align: center;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
-    border: 1px solid #e2e8f0;
+    border: 2px solid #059669;
+    box-shadow: 0 4px 15px rgba(5, 150, 105, 0.1);
 }
 
 .service:hover {
@@ -319,13 +324,13 @@ main {
 
 .service i {
     font-size: 3rem;
-    color: #2c5282;
+    color: #059669;
     margin-bottom: 1.5rem;
 }
 
 .service h3 {
     font-size: 1.5rem;
-    color: #1a365d;
+    color: #1e3a8a;
     margin-bottom: 1rem;
     font-weight: 600;
 }
@@ -336,11 +341,11 @@ main {
 }
 
 .service h3 a:hover {
-    color: #2c5282;
+    color: #059669;
 }
 
 .service p {
-    color: #4a5568;
+    color: #1f2937;
     line-height: 1.6;
     margin-bottom: 1rem;
 }
@@ -348,13 +353,13 @@ main {
 /* 专业领域 */
 .expertise {
     padding: 80px 0;
-    background: linear-gradient(135deg, #a8e0d0 0%, #8dd4c0 100%);
+    background: #ffffff;
 }
 
 .expertise h2 {
     text-align: center;
     font-size: 2.5rem;
-    color: #1a365d;
+    color: #1e3a8a;
     margin-bottom: 1rem;
     font-weight: 600;
 }
@@ -362,7 +367,7 @@ main {
 .expertise-subtitle {
     text-align: center;
     font-size: 1.2rem;
-    color: #4a5568;
+    color: #1f2937;
     margin-bottom: 3rem;
 }
 
@@ -375,12 +380,13 @@ main {
 }
 
 .expertise-item {
-    background: #ffffff;
+    background: #f8fafc;
     padding: 2.5rem;
     border-radius: 12px;
     text-align: center;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 4px 15px rgba(30, 58, 138, 0.1);
+    border: 2px solid #1e3a8a;
 }
 
 .expertise-item:hover {
@@ -390,32 +396,32 @@ main {
 
 .expertise-item i {
     font-size: 3rem;
-    color: #2c5282;
+    color: #059669;
     margin-bottom: 1.5rem;
 }
 
 .expertise-item h3 {
     font-size: 1.5rem;
-    color: #1a365d;
+    color: #1e3a8a;
     margin-bottom: 1rem;
     font-weight: 600;
 }
 
 .expertise-item p {
-    color: #4a5568;
+    color: #1f2937;
     line-height: 1.6;
 }
 
 /* 联系我们 */
 .contact {
     padding: 80px 0;
-    background: #ffffff;
+    background: #f8fafc;
 }
 
 .contact h2 {
     text-align: center;
     font-size: 2.5rem;
-    color: #1a365d;
+    color: #1e3a8a;
     margin-bottom: 1rem;
     font-weight: 600;
 }
@@ -423,7 +429,7 @@ main {
 .contact-subtitle {
     text-align: center;
     font-size: 1.2rem;
-    color: #4a5568;
+    color: #1f2937;
     margin-bottom: 3rem;
 }
 
@@ -449,32 +455,33 @@ main {
 
 .contact-item i {
     font-size: 1.5rem;
-    color: #2c5282;
+    color: #059669;
     margin-top: 0.5rem;
 }
 
 .contact-item h3 {
     font-size: 1.2rem;
-    color: #1a365d;
+    color: #1e3a8a;
     margin-bottom: 0.5rem;
     font-weight: 600;
 }
 
 .contact-item p {
-    color: #4a5568;
+    color: #1f2937;
     margin-bottom: 0.5rem;
 }
 
 .contact-form {
-    background: #f8fafc;
+    background: #ffffff;
     padding: 2.5rem;
     border-radius: 12px;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 4px 15px rgba(30, 58, 138, 0.1);
+    border: 2px solid #1e3a8a;
 }
 
 .contact-form h3 {
     font-size: 1.5rem;
-    color: #1a365d;
+    color: #1e3a8a;
     margin-bottom: 1.5rem;
     font-weight: 600;
 }
@@ -495,7 +502,7 @@ main {
 .contact-form select:focus,
 .contact-form textarea:focus {
     outline: none;
-    border-color: #2c5282;
+    border-color: #059669;
 }
 
 .contact-form textarea {
@@ -505,9 +512,9 @@ main {
 
 /* 页脚 */
 .footer {
-    background: #1a365d;
-    color: #ffffff;
-    padding: 60px 0 20px;
+    background: linear-gradient(180deg, #4186b2 0%, #244c74 100%);
+    color: #f7fafc;
+    padding: 60px 0 0;
 }
 
 .footer-content {
@@ -520,7 +527,7 @@ main {
 .footer-section h4 {
     font-size: 1.2rem;
     margin-bottom: 1.5rem;
-    color: #ffffff;
+    color: #f7fafc;
     font-weight: 600;
 }
 
@@ -533,13 +540,13 @@ main {
 }
 
 .footer-section ul li a {
-    color: #cbd5e0;
+    color: #f7fafc;
     text-decoration: none;
     transition: color 0.3s;
 }
 
 .footer-section ul li a:hover {
-    color: #ffffff;
+    color: #f7fafc;
 }
 
 .footer-logo {
@@ -547,8 +554,9 @@ main {
     align-items: center;
     gap: 10px;
     margin-bottom: 1rem;
-    font-size: 1.5rem;
+    font-size: 1.875rem;
     font-weight: 700;
+    color: #f7fafc;
 }
 
 .footer-logo i {
@@ -563,33 +571,34 @@ main {
 
 .footer-slogan {
     font-size: 0.8rem;
-    color: #cbd5e0;
+    color: #f7fafc;
     font-weight: 400;
 }
 
 .footer-section p {
-    color: #cbd5e0;
+    color: #f7fafc;
     line-height: 1.6;
     margin-bottom: 1rem;
 }
 
 .social-links {
     display: flex;
-    gap: 1rem;
-    margin-top: 1rem;
+    gap: 0.5rem;
+    margin-top: 0.5rem;
 }
 
 .social-links a {
     display: flex;
     align-items: center;
     justify-content: center;
-    width: 40px;
-    height: 40px;
-    background: #2d3748;
-    color: #ffffff;
+    width: 80px;
+    height: 80px;
+    background: transparent;
+    color: #f7fafc;
     border-radius: 50%;
     text-decoration: none;
     transition: background 0.3s;
+    font-size: 2rem;
 }
 
 .social-links a:hover {
@@ -598,17 +607,22 @@ main {
 
 .footer-bottom {
     border-top: 1px solid #2d3748;
-    padding-top: 2rem;
+    padding: 0.81rem 0;
     text-align: center;
+    background: #2c9cc4;
+    margin-top: 0;
+    width: 100vw;
+    margin-left: calc(-50vw + 50%);
+    box-sizing: border-box;
 }
 
 .footer-bottom p {
-    color: #cbd5e0;
-    font-size: 0.9rem;
+    color: #f7fafc;
+    font-size: 1.08rem;
 }
 
 .footer-bottom a {
-    color: #68d391;
+    color: #ffffff;
     text-decoration: none;
 }
 
@@ -667,10 +681,14 @@ main {
     
     /* 网格布局 */
     .features-grid,
-    .about-content,
     .services-grid,
     .expertise-grid {
         grid-template-columns: 1fr;
+        gap: 2rem;
+    }
+    
+    .about-content {
+        grid-template-columns: repeat(2, 1fr);
         gap: 2rem;
     }
     
@@ -701,7 +719,7 @@ main {
     }
     
     .footer-bottom p {
-        font-size: 0.8rem;
+        font-size: 0.96rem;
         text-align: center;
     }
 }
@@ -720,6 +738,10 @@ main {
     }
     
     .stats {
+        grid-template-columns: 1fr;
+    }
+    
+    .about-content {
         grid-template-columns: 1fr;
     }
     
