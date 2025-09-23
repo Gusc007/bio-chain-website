@@ -14,7 +14,7 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use(express.static('.'));
 
 // 邮件配置
-const transporter = nodemailer.createTransporter({
+const transporter = nodemailer.createTransport({
     service: 'gmail', // 可以使用其他邮件服务
     auth: {
         user: process.env.EMAIL_USER || 'your-email@gmail.com',

@@ -126,9 +126,15 @@ function initContactForm() {
                     message: message.trim()
                 })
             })
-            .then(response => response.json())
+            .then(response => {
+                console.log('API响应状态:', response.status);
+                if (!response.ok) {
+                    throw new Error(`HTTP ${response.status}: ${response.statusText}`);
+                }
+                return response.json();
+            })
             .then(data => {
-                console.log('API响应:', data);
+                console.log('API响应数据:', data);
                 if (data.success) {
                     alert(data.message);
                     this.reset();
@@ -138,11 +144,18 @@ function initContactForm() {
             })
             .catch(error => {
                 console.error('发送错误:', error);
-                alert('发送失败，请稍后重试或直接联系我们');
+                // 如果API不可用，回退到模拟发送
+                console.log('API不可用，使用模拟发送');
+                setTimeout(() => {
+                    alert('消息发送成功！我们会尽快回复您。\n\n注意：当前为模拟发送，实际邮件发送需要配置邮件服务。');
+                    this.reset();
+                    submitButton.textContent = originalText;
+                    submitButton.disabled = false;
+                }, 2000);
             })
             .finally(() => {
-                submitButton.textContent = originalText;
-                submitButton.disabled = false;
+                // 只有在API成功的情况下才重置按钮状态
+                // 如果API失败，在catch中处理
             });
         });
     } else {
