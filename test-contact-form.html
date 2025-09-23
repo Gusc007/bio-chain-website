@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>联系表单测试 - Bio-Chain</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 600px;
+            margin: 50px auto;
+            padding: 20px;
+            background: #f5f5f5;
+        }
+        .test-container {
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        .contact-form {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+        .contact-form input,
+        .contact-form select,
+        .contact-form textarea {
+            padding: 12px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-size: 16px;
+        }
+        .contact-form button {
+            background: #2563eb;
+            color: white;
+            padding: 12px 24px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+        .contact-form button:hover {
+            background: #1d4ed8;
+        }
+        .contact-form button:disabled {
+            background: #9ca3af;
+            cursor: not-allowed;
+        }
+        .debug-info {
+            margin-top: 20px;
+            padding: 15px;
+            background: #f3f4f6;
+            border-radius: 5px;
+            font-family: monospace;
+            font-size: 12px;
+        }
+    </style>
+</head>
+<body>
+    <div class="test-container">
+        <h1>联系表单功能测试</h1>
+        <p>请填写以下表单测试发送消息功能：</p>
+        
+        <form class="contact-form" id="contactForm">
+            <h3>发送消息 📤</h3>
+            <input type="text" name="name" placeholder="姓名" required>
+            <input type="email" name="email" placeholder="邮箱" required>
+            <input type="tel" name="phone" placeholder="电话" required>
+            <select name="service" required>
+                <option value="">选择服务</option>
+                <option value="air">空运服务</option>
+                <option value="sea">海运服务</option>
+                <option value="land">陆运服务</option>
+                <option value="warehouse">仓储服务</option>
+            </select>
+            <textarea name="message" placeholder="详细需求" rows="5" required></textarea>
+            <button type="submit" class="btn">发送消息</button>
+        </form>
+        
+        <div class="debug-info" id="debugInfo">
+            <h4>调试信息：</h4>
+            <div id="debugLog">等待表单提交...</div>
+        </div>
+    </div>
+
+    <script>
+        // 调试日志函数
+        function debugLog(message) {
+            const debugDiv = document.getElementById('debugLog');
+            const timestamp = new Date().toLocaleTimeString();
+            debugDiv.innerHTML += `<div>[${timestamp}] ${message}</div>`;
+        }
+
+        // 联系表单处理
+        function initContactForm() {
+            const contactForm = document.querySelector('#contactForm');
+            debugLog('联系表单元素: ' + (contactForm ? '找到' : '未找到'));
+            
+            if (contactForm) {
+                contactForm.addEventListener('submit', function(e) {
+                    e.preventDefault();
+                    debugLog('表单提交事件触发');
+                    
+                    // 使用name属性获取表单数据
+                    const formData = new FormData(this);
+                    const name = formData.get('name') || '';
+                    const email = formData.get('email') || '';
+                    const phone = formData.get('phone') || '';
+                    const service = formData.get('service') || '';
+                    const message = formData.get('message') || '';
+                    
+                    debugLog('表单数据: ' + JSON.stringify({ name, email, phone, service, message }));
+                    
+                    // 简单的表单验证
+                    if (!name.trim() || !email.trim() || !phone.trim() || !service || !message.trim()) {
+                        debugLog('验证失败: 请填写所有字段');
+                        alert('请填写所有字段');
+                        return;
+                    }
+                    
+                    if (!isValidEmail(email.trim())) {
+                        debugLog('验证失败: 邮箱格式无效');
+                        alert('请输入有效的邮箱地址');
+                        return;
+                    }
+                    
+                    if (!isValidPhone(phone.trim())) {
+                        debugLog('验证失败: 电话格式无效');
+                        alert('请输入有效的电话号码（至少7位数字）');
+                        return;
+                    }
+                    
+                    debugLog('验证通过，开始模拟发送');
+                    
+                    // 模拟表单提交
+                    const submitButton = this.querySelector('button[type="submit"]');
+                    if (!submitButton) {
+                        debugLog('错误: 找不到提交按钮');
+                        return;
+                    }
+                    
+                    const originalText = submitButton.textContent;
+                    submitButton.textContent = '发送中...';
+                    submitButton.disabled = true;
+                    
+                    // 模拟网络请求
+                    setTimeout(() => {
+                        debugLog('模拟发送成功');
+                        alert('消息发送成功！我们会尽快回复您。');
+                        this.reset();
+                        submitButton.textContent = originalText;
+                        submitButton.disabled = false;
+                        debugLog('表单已重置');
+                    }, 2000);
+                });
+            } else {
+                debugLog('错误: 找不到联系表单元素');
+            }
+        }
+
+        // 邮箱验证函数
+        function isValidEmail(email) {
+            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            return emailRegex.test(email);
+        }
+
+        // 电话验证函数
+        function isValidPhone(phone) {
+            const cleanPhone = phone.replace(/\D/g, '');
+            return cleanPhone.length >= 7 && cleanPhone.length <= 15;
+        }
+
+        // 页面加载时初始化
+        document.addEventListener('DOMContentLoaded', function() {
+            debugLog('页面加载完成，初始化表单');
+            initContactForm();
+        });
+    </script>
+</body>
+</html>

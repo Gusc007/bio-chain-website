@@ -112,14 +112,38 @@ function initContactForm() {
             submitButton.textContent = '发送中...';
             submitButton.disabled = true;
             
-            // 模拟网络请求
-            setTimeout(() => {
-                console.log('模拟发送成功');
-                alert('消息发送成功！我们会尽快回复您。');
-                this.reset();
+            // 发送到后端API
+            fetch('/api/contact', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({
+                    name: name.trim(),
+                    email: email.trim(),
+                    phone: phone.trim(),
+                    service: service,
+                    message: message.trim()
+                })
+            })
+            .then(response => response.json())
+            .then(data => {
+                console.log('API响应:', data);
+                if (data.success) {
+                    alert(data.message);
+                    this.reset();
+                } else {
+                    alert('发送失败: ' + data.message);
+                }
+            })
+            .catch(error => {
+                console.error('发送错误:', error);
+                alert('发送失败，请稍后重试或直接联系我们');
+            })
+            .finally(() => {
                 submitButton.textContent = originalText;
                 submitButton.disabled = false;
-            }, 2000);
+            });
         });
     } else {
         console.error('找不到联系表单元素');
