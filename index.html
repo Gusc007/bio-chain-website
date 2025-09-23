@@ -236,19 +236,19 @@
                             </div>
                         </div>
                     </div>
-                    <form class="contact-form">
+                    <form class="contact-form" id="contactForm">
                         <h3>发送消息 📤</h3>
-                        <input type="text" placeholder="姓名" required>
-                        <input type="email" placeholder="邮箱" required>
-                        <input type="tel" placeholder="电话" required>
-                        <select required>
+                        <input type="text" name="name" placeholder="姓名" required>
+                        <input type="email" name="email" placeholder="邮箱" required>
+                        <input type="tel" name="phone" placeholder="电话" required>
+                        <select name="service" required>
                             <option value="">选择服务</option>
                             <option value="air">空运服务</option>
                             <option value="sea">海运服务</option>
                             <option value="land">陆运服务</option>
                             <option value="warehouse">仓储服务</option>
                         </select>
-                        <textarea placeholder="详细需求" rows="5" required></textarea>
+                        <textarea name="message" placeholder="详细需求" rows="5" required></textarea>
                         <button type="submit" class="btn">发送消息</button>
                     </form>
                 </div>

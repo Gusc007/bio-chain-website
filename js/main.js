@@ -63,41 +63,75 @@ function initSmoothScrolling() {
 
 // 联系表单处理
 function initContactForm() {
-    const contactForm = document.querySelector('.contact-form');
+    // 尝试多种选择器
+    const contactForm = document.querySelector('#contactForm') || 
+                       document.querySelector('.contact-form') ||
+                       document.querySelector('form');
+    
+    console.log('联系表单元素:', contactForm); // 调试信息
+    
     if (contactForm) {
         contactForm.addEventListener('submit', function(e) {
             e.preventDefault();
-            // 获取表单数据
-            const name = this.querySelector('input[type="text"]').value;
-            const email = this.querySelector('input[type="email"]').value;
-            const phone = this.querySelector('input[type="tel"]').value;
-            const service = this.querySelector('select').value;
-            const message = this.querySelector('textarea').value;
+            console.log('表单提交事件触发'); // 调试信息
+            
+            // 使用name属性获取表单数据，更可靠
+            const formData = new FormData(this);
+            const name = formData.get('name') || this.querySelector('input[name="name"]')?.value || '';
+            const email = formData.get('email') || this.querySelector('input[name="email"]')?.value || '';
+            const phone = formData.get('phone') || this.querySelector('input[name="phone"]')?.value || '';
+            const service = formData.get('service') || this.querySelector('select[name="service"]')?.value || '';
+            const message = formData.get('message') || this.querySelector('textarea[name="message"]')?.value || '';
+            
+            console.log('表单数据:', { name, email, phone, service, message }); // 调试信息
+            
             // 简单的表单验证
-            if (!name || !email || !phone || !service || !message) {
+            if (!name.trim() || !email.trim() || !phone.trim() || !service || !message.trim()) {
                 alert('请填写所有字段');
                 return;
             }
-            if (!isValidEmail(email)) {
+            
+            if (!isValidEmail(email.trim())) {
                 alert('请输入有效的邮箱地址');
                 return;
             }
-            if (!isValidPhone(phone)) {
-                alert('请输入有效的电话号码');
+            
+            if (!isValidPhone(phone.trim())) {
+                alert('请输入有效的电话号码（至少7位数字）');
                 return;
             }
+            
             // 模拟表单提交
-            const submitButton = this.querySelector('button');
+            const submitButton = this.querySelector('button[type="submit"]');
+            if (!submitButton) {
+                console.error('找不到提交按钮');
+                return;
+            }
+            
             const originalText = submitButton.textContent;
             submitButton.textContent = '发送中...';
             submitButton.disabled = true;
+            
+            // 模拟网络请求
             setTimeout(() => {
+                console.log('模拟发送成功');
                 alert('消息发送成功！我们会尽快回复您。');
                 this.reset();
                 submitButton.textContent = originalText;
                 submitButton.disabled = false;
             }, 2000);
         });
+    } else {
+        console.error('找不到联系表单元素');
+        // 尝试延迟查找
+        setTimeout(() => {
+            const delayedForm = document.querySelector('#contactForm') || 
+                               document.querySelector('.contact-form');
+            if (delayedForm) {
+                console.log('延迟找到表单，重新初始化');
+                initContactForm();
+            }
+        }, 1000);
     }
 }
 
@@ -109,8 +143,10 @@ function isValidEmail(email) {
 
 // 电话验证函数
 function isValidPhone(phone) {
-    const phoneRegex = /^[\+]?\d[\d\s\-\(\)]{6,}$/;
-    return phoneRegex.test(phone);
+    // 移除所有非数字字符，只保留数字
+    const cleanPhone = phone.replace(/\D/g, '');
+    // 至少7位数字，最多15位数字
+    return cleanPhone.length >= 7 && cleanPhone.length <= 15;
 }
 
 // 简单的动画效果
