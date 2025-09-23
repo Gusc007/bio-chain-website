@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bio-Chain 邮件发送测试</title>
+    <style>
+        body {
+            font-family: 'Inter', Arial, sans-serif;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+        }
+        .container {
+            background: white;
+            border-radius: 15px;
+            padding: 40px;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+        }
+        .header {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        .header h1 {
+            color: #2c5282;
+            margin-bottom: 10px;
+        }
+        .status {
+            padding: 15px;
+            border-radius: 8px;
+            margin: 20px 0;
+            font-weight: bold;
+        }
+        .status.info {
+            background: #dbeafe;
+            color: #1e40af;
+            border: 1px solid #93c5fd;
+        }
+        .status.success {
+            background: #d1fae5;
+            color: #065f46;
+            border: 1px solid #a7f3d0;
+        }
+        .status.error {
+            background: #fee2e2;
+            color: #991b1b;
+            border: 1px solid #fca5a5;
+        }
+        .form-group {
+            margin-bottom: 20px;
+        }
+        .form-group label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: 600;
+            color: #374151;
+        }
+        .form-group input,
+        .form-group select,
+        .form-group textarea {
+            width: 100%;
+            padding: 12px;
+            border: 2px solid #e5e7eb;
+            border-radius: 8px;
+            font-size: 16px;
+            transition: border-color 0.3s;
+        }
+        .form-group input:focus,
+        .form-group select:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: #2563eb;
+        }
+        .btn {
+            background: linear-gradient(135deg, #2563eb, #1d4ed8);
+            color: white;
+            padding: 15px 30px;
+            border: none;
+            border-radius: 8px;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: transform 0.2s;
+            width: 100%;
+        }
+        .btn:hover {
+            transform: translateY(-2px);
+        }
+        .btn:disabled {
+            background: #9ca3af;
+            cursor: not-allowed;
+            transform: none;
+        }
+        .test-links {
+            background: #f8fafc;
+            padding: 20px;
+            border-radius: 8px;
+            margin: 20px 0;
+        }
+        .test-links h3 {
+            color: #2c5282;
+            margin-bottom: 15px;
+        }
+        .test-links a {
+            display: block;
+            padding: 10px 15px;
+            margin: 5px 0;
+            background: white;
+            color: #2563eb;
+            text-decoration: none;
+            border-radius: 5px;
+            border: 1px solid #e5e7eb;
+            transition: all 0.3s;
+        }
+        .test-links a:hover {
+            background: #2563eb;
+            color: white;
+        }
+        .log {
+            background: #1f2937;
+            color: #f9fafb;
+            padding: 15px;
+            border-radius: 8px;
+            font-family: 'Courier New', monospace;
+            font-size: 14px;
+            max-height: 300px;
+            overflow-y: auto;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>📧 Bio-Chain 邮件发送测试</h1>
+            <p>测试联系表单的邮件发送功能</p>
+        </div>
+
+        <div class="status info">
+            <strong>当前状态：</strong>模拟发送模式<br>
+            <strong>说明：</strong>需要配置真实邮件服务才能发送到 cindy.zhang@bio-chain.cn
+        </div>
+
+        <div class="test-links">
+            <h3>🔗 测试链接</h3>
+            <a href="http://localhost:3000" target="_blank">🏠 主网站 - 完整功能测试</a>
+            <a href="http://localhost:3000/test-form.html" target="_blank">📝 简化测试表单</a>
+            <a href="http://localhost:3000/api/health" target="_blank">🔍 API 健康检查</a>
+            <a href="http://localhost:3000/#contact" target="_blank">📞 联系表单区域</a>
+        </div>
+
+        <form id="testForm">
+            <div class="form-group">
+                <label for="name">姓名 *</label>
+                <input type="text" id="name" name="name" value="测试用户" required>
+            </div>
+            
+            <div class="form-group">
+                <label for="email">邮箱 *</label>
+                <input type="email" id="email" name="email" value="test@example.com" required>
+            </div>
+            
+            <div class="form-group">
+                <label for="phone">电话 *</label>
+                <input type="tel" id="phone" name="phone" value="1234567890" required>
+            </div>
+            
+            <div class="form-group">
+                <label for="service">服务类型 *</label>
+                <select id="service" name="service" required>
+                    <option value="">选择服务</option>
+                    <option value="air" selected>空运服务</option>
+                    <option value="sea">海运服务</option>
+                    <option value="land">陆运服务</option>
+                    <option value="warehouse">仓储服务</option>
+                </select>
+            </div>
+            
+            <div class="form-group">
+                <label for="message">详细需求 *</label>
+                <textarea id="message" name="message" rows="4" required>这是一条测试消息，用于验证邮件发送功能。</textarea>
+            </div>
+            
+            <button type="submit" class="btn" id="submitBtn">🚀 发送测试邮件</button>
+        </form>
+
+        <div id="result"></div>
+        <div id="log" class="log" style="display: none;"></div>
+    </div>
+
+    <script>
+        function log(message) {
+            const logDiv = document.getElementById('log');
+            const timestamp = new Date().toLocaleTimeString();
+            logDiv.innerHTML += `[${timestamp}] ${message}\n`;
+            logDiv.scrollTop = logDiv.scrollHeight;
+        }
+
+        function showResult(message, type = 'info') {
+            const resultDiv = document.getElementById('result');
+            resultDiv.innerHTML = `<div class="status ${type}">${message}</div>`;
+        }
+
+        document.getElementById('testForm').addEventListener('submit', async function(e) {
+            e.preventDefault();
+            
+            const submitBtn = document.getElementById('submitBtn');
+            const originalText = submitBtn.textContent;
+            
+            submitBtn.textContent = '发送中...';
+            submitBtn.disabled = true;
+            
+            document.getElementById('log').style.display = 'block';
+            log('开始发送测试邮件...');
+            
+            const formData = new FormData(this);
+            const data = {
+                name: formData.get('name'),
+                email: formData.get('email'),
+                phone: formData.get('phone'),
+                service: formData.get('service'),
+                message: formData.get('message')
+            };
+            
+            log(`表单数据: ${JSON.stringify(data, null, 2)}`);
+            
+            try {
+                const response = await fetch('/api/contact', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify(data)
+                });
+                
+                log(`API响应状态: ${response.status}`);
+                
+                const result = await response.json();
+                log(`API响应数据: ${JSON.stringify(result, null, 2)}`);
+                
+                if (result.success) {
+                    showResult(`✅ ${result.message}`, 'success');
+                    log('✅ 邮件发送成功！');
+                } else {
+                    showResult(`❌ 发送失败: ${result.message}`, 'error');
+                    log(`❌ 发送失败: ${result.message}`);
+                }
+                
+            } catch (error) {
+                log(`❌ 网络错误: ${error.message}`);
+                showResult(`❌ 网络错误: ${error.message}`, 'error');
+            } finally {
+                submitBtn.textContent = originalText;
+                submitBtn.disabled = false;
+            }
+        });
+
+        // 页面加载时显示当前状态
+        window.addEventListener('load', function() {
+            log('页面加载完成');
+            log('当前为模拟发送模式');
+            log('要启用真实邮件发送，请配置邮件服务');
+        });
+    </script>
+</body>
+</html>

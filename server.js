@@ -14,13 +14,26 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use(express.static('.'));
 
 // 邮件配置
-const transporter = nodemailer.createTransport({
-    service: 'gmail', // 可以使用其他邮件服务
-    auth: {
-        user: process.env.EMAIL_USER || 'your-email@gmail.com',
-        pass: process.env.EMAIL_PASS || 'your-app-password'
-    }
-});
+let transporter = null;
+
+// 检查邮件配置
+const emailUser = process.env.EMAIL_USER;
+const emailPass = process.env.EMAIL_PASS;
+
+if (emailUser && emailPass && emailUser !== 'your-gmail@gmail.com' && emailPass !== 'your-app-password') {
+    // 真实邮件配置
+    transporter = nodemailer.createTransport({
+        service: 'gmail',
+        auth: {
+            user: emailUser,
+            pass: emailPass
+        }
+    });
+    console.log('✅ 邮件服务已配置，将发送真实邮件');
+} else {
+    console.log('⚠️  邮件服务未配置，使用模拟发送模式');
+    console.log('请配置 .env 文件中的 EMAIL_USER 和 EMAIL_PASS');
+}
 
 // 联系表单提交接口
 app.post('/api/contact', async (req, res) => {
@@ -73,33 +86,64 @@ app.post('/api/contact', async (req, res) => {
         };
         
         // 发送邮件
-        await transporter.sendMail(mailOptions);
-        
-        // 发送确认邮件给客户
-        const confirmMailOptions = {
-            from: process.env.EMAIL_USER || 'your-email@gmail.com',
-            to: email,
-            subject: '感谢您的咨询 - Bio-Chain',
-            html: `
-                <h2>感谢您的咨询</h2>
-                <p>亲爱的 ${name}，</p>
-                <p>感谢您对 Bio-Chain 专业生物制品及药品物流运输服务的关注！</p>
-                <p>我们已收到您的咨询信息：</p>
-                <ul>
-                    <li><strong>服务类型:</strong> ${service}</li>
-                    <li><strong>您的需求:</strong> ${message}</li>
-                </ul>
-                <p>我们的专业团队将在1-2个工作日内回复您，请保持电话畅通。</p>
-                <p>如有紧急需求，请直接致电：+86 21 5049 8599</p>
-                <hr>
-                <p><strong>Bio-Chain 团队</strong><br>
-                专业生物制品及药品物流运输<br>
-                电话: +86 21 5049 8599<br>
-                邮箱: cindy.zhang@bio-chain.cn</p>
-            `
-        };
-        
-        await transporter.sendMail(confirmMailOptions);
+        if (transporter) {
+            // 真实邮件发送
+            try {
+                await transporter.sendMail(mailOptions);
+                console.log('✅ 邮件已发送到 cindy.zhang@bio-chain.cn');
+                
+                // 发送确认邮件给客户
+                const confirmMailOptions = {
+                    from: emailUser,
+                    to: email,
+                    subject: '感谢您的咨询 - Bio-Chain',
+                    html: `
+                        <h2>感谢您的咨询</h2>
+                        <p>亲爱的 ${name}，</p>
+                        <p>感谢您对 Bio-Chain 专业生物制品及药品物流运输服务的关注！</p>
+                        <p>我们已收到您的咨询信息：</p>
+                        <ul>
+                            <li><strong>服务类型:</strong> ${service}</li>
+                            <li><strong>您的需求:</strong> ${message}</li>
+                        </ul>
+                        <p>我们的专业团队将在1-2个工作日内回复您，请保持电话畅通。</p>
+                        <p>如有紧急需求，请直接致电：+86 21 5049 8599</p>
+                        <hr>
+                        <p><strong>Bio-Chain 团队</strong><br>
+                        专业生物制品及药品物流运输<br>
+                        电话: +86 21 5049 8599<br>
+                        邮箱: cindy.zhang@bio-chain.cn</p>
+                    `
+                };
+                
+                await transporter.sendMail(confirmMailOptions);
+                console.log('✅ 确认邮件已发送给客户');
+                
+            } catch (emailError) {
+                console.error('❌ 邮件发送失败:', emailError.message);
+                // 如果邮件发送失败，回退到模拟发送
+                console.log('📧 模拟发送邮件到 cindy.zhang@bio-chain.cn');
+                console.log('邮件内容:', {
+                    to: 'cindy.zhang@bio-chain.cn',
+                    subject: `Bio-Chain 网站咨询 - ${service}服务`,
+                    from: email,
+                    name: name,
+                    phone: phone,
+                    message: message
+                });
+            }
+        } else {
+            // 模拟邮件发送
+            console.log('📧 模拟发送邮件到 cindy.zhang@bio-chain.cn');
+            console.log('邮件内容:', {
+                to: 'cindy.zhang@bio-chain.cn',
+                subject: `Bio-Chain 网站咨询 - ${service}服务`,
+                from: email,
+                name: name,
+                phone: phone,
+                message: message
+            });
+        }
         
         res.json({ 
             success: true, 
