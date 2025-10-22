@@ -1,0 +1,20 @@
+{
+  "version": 2,
+  "builds": [
+    {
+      "src": "api/contact.js",
+      "use": "@vercel/node"
+    }
+  ],
+  "routes": [
+    {
+      "src": "/api/contact",
+      "dest": "/api/contact"
+    }
+  ],
+  "env": {
+    "EMAIL_USER": "tony.gu@bio-chain.cn",
+    "EMAIL_PASS": "Pactlt3215422",
+    "TARGET_EMAIL": "tony.gu@bio-chain.cn"
+  }
+}

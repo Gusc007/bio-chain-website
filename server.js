@@ -1,3 +1,4 @@
+require('dotenv').config();
 const express = require('express');
 const cors = require('cors');
 const bodyParser = require('body-parser');
@@ -22,14 +23,83 @@ const emailPass = process.env.EMAIL_PASS;
 
 if (emailUser && emailPass && emailUser !== 'your-gmail@gmail.com' && emailPass !== 'your-app-password') {
     // 真实邮件配置
-    transporter = nodemailer.createTransport({
-        service: 'gmail',
-        auth: {
-            user: emailUser,
-            pass: emailPass
-        }
-    });
-    console.log('✅ 邮件服务已配置，将发送真实邮件');
+    if (emailUser.includes('@bio-chain.cn')) {
+        // 腾讯企业邮箱配置
+        transporter = nodemailer.createTransport({
+            host: 'smtp.exmail.qq.com',
+            port: 465,
+            secure: true, // 使用 SSL
+            auth: {
+                user: emailUser,
+                pass: emailPass
+            },
+            tls: {
+                rejectUnauthorized: false
+            }
+        });
+        console.log('✅ 腾讯企业邮箱已配置，将发送真实邮件');
+        
+        // 测试邮件配置
+        transporter.verify((error, success) => {
+            if (error) {
+                console.log('❌ 腾讯企业邮箱连接失败:', error.message);
+                console.log('⚠️  将使用模拟发送模式');
+                transporter = null;
+            } else {
+                console.log('✅ 腾讯企业邮箱连接测试成功');
+            }
+        });
+    } else if (emailUser.includes('@gmail.com')) {
+        // Gmail 配置
+        transporter = nodemailer.createTransport({
+            service: 'gmail',
+            auth: {
+                user: emailUser,
+                pass: emailPass
+            }
+        });
+        console.log('✅ Gmail 已配置，将发送真实邮件');
+    } else if (emailUser.includes('@163.com')) {
+        // 163邮箱配置
+        transporter = nodemailer.createTransport({
+            host: 'smtp.163.com',
+            port: 465,
+            secure: true,
+            auth: {
+                user: emailUser,
+                pass: emailPass
+            },
+            tls: {
+                rejectUnauthorized: false
+            }
+        });
+        console.log('✅ 163邮箱已配置，将发送真实邮件');
+    } else if (emailUser.includes('@outlook.com') || emailUser.includes('@hotmail.com')) {
+        // Outlook邮箱配置
+        transporter = nodemailer.createTransport({
+            host: 'smtp-mail.outlook.com',
+            port: 587,
+            secure: false,
+            auth: {
+                user: emailUser,
+                pass: emailPass
+            },
+            tls: {
+                rejectUnauthorized: false
+            }
+        });
+        console.log('✅ Outlook邮箱已配置，将发送真实邮件');
+    } else {
+        // 其他邮箱配置
+        transporter = nodemailer.createTransport({
+            service: 'gmail', // 默认使用 Gmail 服务
+            auth: {
+                user: emailUser,
+                pass: emailPass
+            }
+        });
+        console.log('✅ 邮件服务已配置，将发送真实邮件');
+    }
 } else {
     console.log('⚠️  邮件服务未配置，使用模拟发送模式');
     console.log('请配置 .env 文件中的 EMAIL_USER 和 EMAIL_PASS');
@@ -69,7 +139,7 @@ app.post('/api/contact', async (req, res) => {
         // 邮件内容
         const mailOptions = {
             from: process.env.EMAIL_USER || 'your-email@gmail.com',
-            to: 'cindy.zhang@bio-chain.cn',
+            to: 'tony.gu@bio-chain.cn',
             subject: `Bio-Chain 网站咨询 - ${service}服务`,
             html: `
                 <h2>Bio-Chain 网站咨询</h2>
@@ -90,7 +160,7 @@ app.post('/api/contact', async (req, res) => {
             // 真实邮件发送
             try {
                 await transporter.sendMail(mailOptions);
-                console.log('✅ 邮件已发送到 cindy.zhang@bio-chain.cn');
+                console.log('✅ 邮件已发送到 tony.gu@bio-chain.cn');
                 
                 // 发送确认邮件给客户
                 const confirmMailOptions = {
@@ -112,7 +182,7 @@ app.post('/api/contact', async (req, res) => {
                         <p><strong>Bio-Chain 团队</strong><br>
                         专业生物制品及药品物流运输<br>
                         电话: +86 21 5049 8599<br>
-                        邮箱: cindy.zhang@bio-chain.cn</p>
+                        邮箱: tony.gu@bio-chain.cn</p>
                     `
                 };
                 
@@ -122,9 +192,9 @@ app.post('/api/contact', async (req, res) => {
             } catch (emailError) {
                 console.error('❌ 邮件发送失败:', emailError.message);
                 // 如果邮件发送失败，回退到模拟发送
-                console.log('📧 模拟发送邮件到 cindy.zhang@bio-chain.cn');
+                console.log('📧 模拟发送邮件到 tony.gu@bio-chain.cn');
                 console.log('邮件内容:', {
-                    to: 'cindy.zhang@bio-chain.cn',
+                    to: 'tony.gu@bio-chain.cn',
                     subject: `Bio-Chain 网站咨询 - ${service}服务`,
                     from: email,
                     name: name,
@@ -134,9 +204,9 @@ app.post('/api/contact', async (req, res) => {
             }
         } else {
             // 模拟邮件发送
-            console.log('📧 模拟发送邮件到 cindy.zhang@bio-chain.cn');
+            console.log('📧 模拟发送邮件到 tony.gu@bio-chain.cn');
             console.log('邮件内容:', {
-                to: 'cindy.zhang@bio-chain.cn',
+                to: 'tony.gu@bio-chain.cn',
                 subject: `Bio-Chain 网站咨询 - ${service}服务`,
                 from: email,
                 name: name,
