@@ -66,7 +66,7 @@ export default async function handler(req, res) {
         
         if (emailUser.includes('@bio-chain.cn')) {
             // 使用 Gmail 服务发送邮件
-            transporter = nodemailer.createTransporter({
+            transporter = nodemailer.createTransport({
                 service: 'gmail',
                 auth: {
                     user: 'tony.gu@bio-chain.cn', // 使用您的邮箱
@@ -75,7 +75,7 @@ export default async function handler(req, res) {
             });
         } else if (emailUser.includes('@gmail.com')) {
             // Gmail 配置
-            transporter = nodemailer.createTransporter({
+            transporter = nodemailer.createTransport({
                 service: 'gmail',
                 auth: {
                     user: emailUser,
@@ -84,7 +84,7 @@ export default async function handler(req, res) {
             });
         } else {
             // 其他邮箱配置
-            transporter = nodemailer.createTransporter({
+            transporter = nodemailer.createTransport({
                 service: 'gmail',
                 auth: {
                     user: emailUser,
