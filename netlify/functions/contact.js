@@ -107,7 +107,7 @@ exports.handler = async (event, context) => {
             transporter = nodemailer.createTransport({
                 service: 'gmail',
                 auth: {
-                    user: 'tony.gu@bio-chain.cn', // 使用您的邮箱
+                    user: 'tony.gu@gmail.com', // 使用 Gmail 邮箱
                     pass: emailPass
                 }
             });
