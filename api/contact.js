@@ -65,17 +65,12 @@ export default async function handler(req, res) {
         let transporter;
         
         if (emailUser.includes('@bio-chain.cn')) {
-            // 腾讯企业邮箱配置
+            // 使用 Gmail 服务发送邮件
             transporter = nodemailer.createTransporter({
-                host: 'smtp.exmail.qq.com',
-                port: 465,
-                secure: true, // 使用 SSL
+                service: 'gmail',
                 auth: {
-                    user: emailUser,
+                    user: 'tony.gu@bio-chain.cn', // 使用您的邮箱
                     pass: emailPass
-                },
-                tls: {
-                    rejectUnauthorized: false
                 }
             });
         } else if (emailUser.includes('@gmail.com')) {
