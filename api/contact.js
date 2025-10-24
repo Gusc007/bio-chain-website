@@ -69,7 +69,7 @@ export default async function handler(req, res) {
             transporter = nodemailer.createTransport({
                 service: 'gmail',
                 auth: {
-                    user: 'tony.gu@gmail.com', // 使用 Gmail 邮箱
+                    user: 'gusc090124@gmail.com', // 使用正确的 Gmail 邮箱
                     pass: emailPass
                 }
             });
