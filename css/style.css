@@ -688,12 +688,14 @@ main {
         max-height: calc(100vh - 100px);
         opacity: 0; /* 默认不可见 */
         visibility: hidden; /* 默认不可见 */
+        pointer-events: none; /* 默认不可交互 */
     }
     
     .nav-menu.active {
         right: 0;
         opacity: 1; /* 激活时可见 */
         visibility: visible; /* 激活时可见 */
+        pointer-events: auto; /* 激活时可交互 */
     }
     
     .nav-menu li {

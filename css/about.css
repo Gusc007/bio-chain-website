@@ -1,5 +1,15 @@
 /* 关于我们页面专用样式 - 与首页保持一致 */
 
+/* 确保container宽度与其他页面一致 */
+.about-intro .container,
+.values-section .container,
+.service-section .container,
+.certifications .container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
 .page-hero {
     background: linear-gradient(180deg, #a8e0d0 0%, #8dd4c0 50%, #72c8b0 100%);
     padding: 120px 0 80px;
@@ -229,6 +239,13 @@
 /* 响应式设计 */
 /* 平板设备 (768px - 1024px) */
 @media (max-width: 1024px) and (min-width: 769px) {
+    .about-intro .container,
+    .values-section .container,
+    .service-section .container,
+    .certifications .container {
+        max-width: 960px;
+        padding: 0 20px;
+    }
     .service-content {
         grid-template-columns: 1fr 1fr;
         gap: 2.5rem;
@@ -250,6 +267,13 @@
 
 /* 手机和平板 (最大768px) */
 @media (max-width: 768px) {
+    .about-intro .container,
+    .values-section .container,
+    .service-section .container,
+    .certifications .container {
+        max-width: 720px;
+        padding: 0 15px;
+    }
     .page-hero-content h1 {
         font-size: 2.5rem;
     }
@@ -258,9 +282,7 @@
         grid-template-columns: 1fr 1fr;
         gap: 1.5rem;
         align-items: flex-start;
-        padding: 0 10px;
     }
-    /* 移除container的覆盖，使用主样式文件的设置 */
     .service-image {
         order: 1;
     }
@@ -353,13 +375,18 @@
     .page-hero-content h1 {
         font-size: 2rem;
     }
+    .about-intro .container,
+    .values-section .container,
+    .service-section .container,
+    .certifications .container {
+        max-width: 450px;
+        padding: 0 10px;
+    }
     /* 小屏幕仍然保持横排，但进一步缩小 */
     .service-content {
         grid-template-columns: 1fr 1fr;
         gap: 1rem;
-        padding: 0 5px;
     }
-    /* 移除container的覆盖，使用主样式文件的设置 */
     .service-text h2 {
         font-size: 1.3rem;
         margin-bottom: 0.8rem;

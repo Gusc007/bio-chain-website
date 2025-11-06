@@ -29,10 +29,10 @@ function initLogoClick() {
             
             // 检查是否是链接到其他页面
             const href = logoLink.getAttribute('href');
-            if (href && href.includes('index.html')) {
-                // 如果是链接到index.html，允许浏览器默认跳转
-                // 不阻止默认行为，让浏览器正常处理链接跳转
-                return true;
+            if (href && (href.includes('index.html') || href === 'index.html')) {
+                // 如果是链接到index.html，直接跳转，不阻止默认行为
+                // 让浏览器正常处理链接跳转
+                return true; // 允许默认行为
             } else if (href && href.startsWith('#')) {
                 // 如果是当前页面的锚点链接，则进行平滑滚动
                 e.preventDefault();
