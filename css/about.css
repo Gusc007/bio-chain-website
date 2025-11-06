@@ -33,6 +33,10 @@
     gap: 4rem;
     align-items: start;
 }
+.intro-text,
+.intro-stats {
+    min-width: 0;
+}
 .intro-text h2 {
     font-size: 2.5rem;
     color: #1a365d;
@@ -131,6 +135,9 @@
 .service-image {
     text-align: center;
     position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 .service-img {
     width: 100%;
@@ -139,6 +146,7 @@
     border-radius: 12px;
     box-shadow: 0 8px 30px rgba(0,0,0,0.15);
     transition: transform 0.3s ease, box-shadow 0.3s ease;
+    object-fit: cover;
 }
 .service-img:hover {
     transform: translateY(-5px);
@@ -219,24 +227,127 @@
 /* 页脚样式 - 移除覆盖，使用主CSS的样式 */
 
 /* 响应式设计 */
-@media (max-width: 768px) {
-    .page-hero-content h1 {
-        font-size: 2.5rem;
-    }
+/* 平板设备 (768px - 1024px) */
+@media (max-width: 1024px) and (min-width: 769px) {
     .service-content {
-        grid-template-columns: 1fr;
-        gap: 2rem;
+        grid-template-columns: 1fr 1fr;
+        gap: 2.5rem;
     }
     .service-text h2 {
         font-size: 2rem;
     }
-    .cert-grid {
-        grid-template-columns: 1fr;
+    .service-text p {
+        font-size: 1rem;
     }
     .service-img {
         max-width: 100%;
     }
+    .intro-content {
+        grid-template-columns: 1.5fr 1fr;
+        gap: 2.5rem;
+    }
 }
+
+/* 手机和平板 (最大768px) */
+@media (max-width: 768px) {
+    .page-hero-content h1 {
+        font-size: 2.5rem;
+    }
+    /* 保持横排布局，但调整比例 */
+    .service-content {
+        grid-template-columns: 1fr 1fr;
+        gap: 1.5rem;
+        align-items: flex-start;
+        padding: 0 10px;
+    }
+    .container {
+        padding: 0 15px;
+    }
+    .service-image {
+        order: 1;
+    }
+    .service-text {
+        order: 2;
+    }
+    /* 交替显示顺序 */
+    .service-section:nth-child(even) .service-content .service-image {
+        order: 2;
+    }
+    .service-section:nth-child(even) .service-content .service-text {
+        order: 1;
+    }
+    .service-text h2 {
+        font-size: 1.5rem;
+        margin-bottom: 1rem;
+    }
+    .service-text p {
+        font-size: 0.9rem;
+        line-height: 1.6;
+        margin-bottom: 1rem;
+    }
+    .service-img {
+        max-width: 100%;
+        width: 100%;
+        height: auto;
+        max-height: 200px;
+        object-fit: cover;
+        border-radius: 8px;
+    }
+    .service-image {
+        min-width: 0;
+        flex-shrink: 1;
+    }
+    .service-text {
+        min-width: 0;
+        flex-shrink: 1;
+        overflow-wrap: break-word;
+    }
+    .intro-content {
+        grid-template-columns: 1fr 1fr;
+        gap: 1.5rem;
+    }
+    .intro-text h2 {
+        font-size: 1.8rem;
+        margin-bottom: 1rem;
+    }
+    .intro-text p {
+        font-size: 0.9rem;
+        line-height: 1.6;
+        margin-bottom: 1rem;
+    }
+    .intro-stats {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 1rem;
+    }
+    .stat-item {
+        padding: 1rem;
+    }
+    .stat-number {
+        font-size: 2rem;
+    }
+    .stat-label {
+        font-size: 0.9rem;
+    }
+    .values-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 1.5rem;
+    }
+    .value-item {
+        padding: 1.5rem;
+    }
+    .value-item h3 {
+        font-size: 1.2rem;
+    }
+    .value-item p {
+        font-size: 0.9rem;
+        line-height: 1.6;
+    }
+    .cert-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* 小屏手机 (最大480px) */
 @media (max-width: 480px) {
     .page-hero {
         padding: 100px 0 60px;
@@ -244,16 +355,77 @@
     .page-hero-content h1 {
         font-size: 2rem;
     }
+    /* 小屏幕仍然保持横排，但进一步缩小 */
+    .service-content {
+        grid-template-columns: 1fr 1fr;
+        gap: 1rem;
+        padding: 0 5px;
+    }
+    .container {
+        padding: 0 10px;
+    }
     .service-text h2 {
-        font-size: 1.8rem;
+        font-size: 1.3rem;
+        margin-bottom: 0.8rem;
+    }
+    .service-text p {
+        font-size: 0.85rem;
+        line-height: 1.5;
+        margin-bottom: 0.8rem;
+    }
+    .service-img {
+        max-height: 150px;
+        border-radius: 6px;
+    }
+    .intro-text p {
+        font-size: 0.85rem;
+        line-height: 1.5;
     }
     .service-section {
-        padding: 60px 0;
+        padding: 40px 0;
+    }
+    .intro-content {
+        grid-template-columns: 1fr 1fr;
+        gap: 1rem;
+    }
+    .intro-text h2 {
+        font-size: 1.5rem;
+    }
+    .intro-text p {
+        font-size: 0.85rem;
+    }
+    .intro-stats {
+        gap: 0.8rem;
+    }
+    .stat-item {
+        padding: 0.8rem;
+    }
+    .stat-number {
+        font-size: 1.8rem;
+    }
+    .stat-label {
+        font-size: 0.8rem;
+    }
+    .values-grid {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+    }
+    .value-item {
+        padding: 1.2rem;
+    }
+    .value-item i {
+        font-size: 2.5rem;
+    }
+    .value-item h3 {
+        font-size: 1.1rem;
+    }
+    .value-item p {
+        font-size: 0.85rem;
     }
     .certifications {
-        padding: 60px 0;
+        padding: 40px 0;
     }
     .cert-item {
-        padding: 2rem;
+        padding: 1.5rem;
     }
 } 
