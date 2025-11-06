@@ -2,10 +2,57 @@
 // 汉堡菜单优化：防止闪退和多次点击
 
 document.addEventListener('DOMContentLoaded', function() {
+    // 先初始化logo点击，确保它优先处理
+    initLogoClick();
     initNavigation();
     initSmoothScrolling();
     initContactForm();
 });
+
+// Logo点击处理
+function initLogoClick() {
+    // 尝试多种选择器以确保找到logo链接
+    const logoLink = document.querySelector('.logo-link') || 
+                     document.querySelector('.logo a') || 
+                     document.querySelector('.logo');
+    
+    if (logoLink) {
+        console.log('Logo链接找到:', logoLink); // 调试信息
+        
+        logoLink.addEventListener('click', function(e) {
+            e.preventDefault();
+            e.stopPropagation();
+            console.log('Logo被点击了'); // 调试信息
+            
+            const targetSection = document.querySelector('#home');
+            if (targetSection) {
+                const offsetTop = targetSection.offsetTop - 80;
+                window.scrollTo({
+                    top: offsetTop,
+                    behavior: 'smooth'
+                });
+            } else {
+                // 如果找不到section，直接跳转到页面顶部
+                window.scrollTo({
+                    top: 0,
+                    behavior: 'smooth'
+                });
+            }
+        });
+        
+        // 也直接给logo图片添加点击事件作为备用
+        const logoImg = document.querySelector('.logo-img');
+        if (logoImg && logoImg.parentElement !== logoLink) {
+            logoImg.addEventListener('click', function(e) {
+                e.preventDefault();
+                e.stopPropagation();
+                logoLink.click();
+            });
+        }
+    } else {
+        console.error('找不到logo链接元素');
+    }
+}
 
 // 导航栏功能
 function initNavigation() {
@@ -44,6 +91,11 @@ function initNavigation() {
 function initSmoothScrolling() {
     const links = document.querySelectorAll('a[href^="#"]');
     links.forEach(link => {
+        // 排除logo链接，因为它有专门的处理函数
+        if (link.classList.contains('logo-link') || link.closest('.logo')) {
+            return;
+        }
+        
         link.addEventListener('click', function(e) {
             // 只处理锚点跳转
             const targetId = this.getAttribute('href');
