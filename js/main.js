@@ -19,16 +19,22 @@ function initLogoClick() {
     if (logoLink) {
         console.log('Logo链接找到:', logoLink); // 调试信息
         
+        // 确保logo链接可以接收点击事件
+        logoLink.style.pointerEvents = 'auto';
+        logoLink.style.cursor = 'pointer';
+        
+        // 使用捕获阶段确保事件被处理
         logoLink.addEventListener('click', function(e) {
             e.preventDefault();
             e.stopPropagation();
+            e.stopImmediatePropagation();
             console.log('Logo被点击了'); // 调试信息
             
             const targetSection = document.querySelector('#home');
             if (targetSection) {
                 const offsetTop = targetSection.offsetTop - 80;
                 window.scrollTo({
-                    top: offsetTop,
+                    top: Math.max(0, offsetTop),
                     behavior: 'smooth'
                 });
             } else {
@@ -38,19 +44,42 @@ function initLogoClick() {
                     behavior: 'smooth'
                 });
             }
-        });
+        }, true); // 使用捕获阶段
         
-        // 也直接给logo图片添加点击事件作为备用
+        // 也直接给logo容器添加点击事件作为备用
+        const logoContainer = document.querySelector('.logo');
+        if (logoContainer && logoContainer !== logoLink) {
+            logoContainer.addEventListener('click', function(e) {
+                // 如果点击的是logo容器而非链接本身，触发链接点击
+                if (e.target !== logoLink && !logoLink.contains(e.target)) {
+                    e.preventDefault();
+                    e.stopPropagation();
+                    logoLink.click();
+                }
+            }, true);
+        }
+        
+        // 确保整个logo区域都可以点击
         const logoImg = document.querySelector('.logo-img');
-        if (logoImg && logoImg.parentElement !== logoLink) {
+        if (logoImg) {
+            // 即使图片有pointer-events: none，父链接也应该能接收点击
+            // 通过监听整个logo容器的点击来确保
             logoImg.addEventListener('click', function(e) {
-                e.preventDefault();
+                // 这个事件不应该被触发（因为pointer-events: none），但作为备用
                 e.stopPropagation();
-                logoLink.click();
-            });
+            }, true);
         }
     } else {
         console.error('找不到logo链接元素');
+        // 如果找不到，尝试延迟查找
+        setTimeout(() => {
+            const delayedLink = document.querySelector('.logo-link') || 
+                              document.querySelector('.logo a');
+            if (delayedLink) {
+                console.log('延迟找到logo链接，重新初始化');
+                initLogoClick();
+            }
+        }, 500);
     }
 }
 

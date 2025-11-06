@@ -27,7 +27,7 @@ body {
     position: fixed;
     top: 0;
     width: 100%;
-    z-index: 1000;
+    z-index: 9999;
 }
 
 .nav-content {
@@ -35,6 +35,8 @@ body {
     justify-content: space-between;
     align-items: center;
     padding: 1rem 0;
+    position: relative;
+    z-index: 10000;
 }
 
 .logo {
@@ -45,7 +47,7 @@ body {
     font-weight: 700;
     color: #1e3a8a;
     position: relative;
-    z-index: 1001;
+    z-index: 10001;
 }
 
 .logo a,
@@ -56,7 +58,11 @@ body {
     cursor: pointer;
     transition: opacity 0.3s;
     position: relative;
-    z-index: 1002;
+    z-index: 10002;
+    padding: 8px 12px;
+    margin: -8px -12px;
+    border-radius: 4px;
+    pointer-events: auto !important;
 }
 
 .logo a:hover,
@@ -73,8 +79,10 @@ body {
     height: 40px;
     width: auto;
     object-fit: contain;
-    pointer-events: none;
+    pointer-events: none !important;
     user-select: none;
+    position: relative;
+    z-index: 1;
 }
 
 .logo i {
