@@ -125,16 +125,14 @@ function initNavigation() {
     });
 
     // 点击菜单外部区域关闭菜单
-    if (window.innerWidth <= 768) {
-        document.addEventListener('click', function(e) {
-            if (navMenu && navMenu.classList.contains('active')) {
-                // 如果点击的不是菜单本身或菜单按钮，则关闭菜单
-                if (!navMenu.contains(e.target) && !navToggle.contains(e.target)) {
-                    navMenu.classList.remove('active');
-                }
+    document.addEventListener('click', function(e) {
+        if (window.innerWidth <= 768 && navMenu && navMenu.classList.contains('active')) {
+            // 如果点击的不是菜单本身或菜单按钮，则关闭菜单
+            if (!navMenu.contains(e.target) && !navToggle.contains(e.target) && !document.querySelector('.logo').contains(e.target)) {
+                navMenu.classList.remove('active');
             }
-        });
-    }
+        }
+    });
 }
 
 // 平滑滚动功能
