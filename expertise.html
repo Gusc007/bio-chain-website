@@ -49,10 +49,12 @@
             padding: 30px;
             border-radius: 10px;
             text-align: center;
-            transition: transform 0.3s ease;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            opacity: 1 !important;
+            transform: translateY(0) !important;
         }
         .expertise-item:hover {
-            transform: translateY(-5px);
+            transform: translateY(-5px) !important;
             box-shadow: 0 10px 25px rgba(0,0,0,0.1);
         }
         .expertise-item i {
@@ -109,7 +111,9 @@
         <div class="container">
             <div class="nav-content">
                 <div class="logo">
-                    <img src="images/logo.png" alt="Bio-Chain Logo" class="logo-img">
+                    <a href="index.html" class="logo-link">
+                        <img src="images/logo.png" alt="Bio-Chain Logo" class="logo-img">
+                    </a>
                 </div>
                 <ul class="nav-menu">
                     <li><a href="index.html">首页</a></li>

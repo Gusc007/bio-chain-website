@@ -268,7 +268,7 @@ function isValidPhone(phone) {
 }
 
 // 简单的动画效果
-window.addEventListener('scroll', function() {
+function checkAndShowElements() {
     const services = document.querySelectorAll('.service, .expertise-item, .feature');
     services.forEach(item => {
         const itemTop = item.getBoundingClientRect().top;
@@ -278,7 +278,9 @@ window.addEventListener('scroll', function() {
             item.style.transform = 'translateY(0)';
         }
     });
-});
+}
+
+window.addEventListener('scroll', checkAndShowElements);
 
 // 页面加载时的初始化
 window.addEventListener('load', function() {
@@ -289,4 +291,26 @@ window.addEventListener('load', function() {
         element.style.transform = 'translateY(20px)';
         element.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
     });
+    
+    // 立即检查一次，显示已在视口内的元素
+    setTimeout(checkAndShowElements, 100);
+    
+    // 使用 Intersection Observer 作为备用方案，确保元素可见
+    if ('IntersectionObserver' in window) {
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, {
+            threshold: 0.1,
+            rootMargin: '50px'
+        });
+        
+        animatedElements.forEach(element => {
+            observer.observe(element);
+        });
+    }
 });

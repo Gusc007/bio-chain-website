@@ -17,7 +17,99 @@
     color: #4a5568;
     max-width: 600px;
     margin: 0 auto 2rem;
-    line-height: 1.6;
+    line-height: 1.8;
+}
+
+/* 关于我们介绍部分 */
+.about-intro {
+    padding: 80px 0;
+    background: #ffffff;
+}
+.intro-content {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    gap: 4rem;
+    align-items: start;
+}
+.intro-text h2 {
+    font-size: 2.5rem;
+    color: #1a365d;
+    margin-bottom: 2rem;
+    font-weight: 600;
+}
+.intro-text p {
+    font-size: 1.1rem;
+    color: #4a5568;
+    line-height: 1.8;
+    margin-bottom: 1.5rem;
+}
+.intro-stats {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.5rem;
+}
+.stat-item {
+    text-align: center;
+    padding: 1.5rem;
+    background: #f8fafc;
+    border-radius: 8px;
+    border: 2px solid #1e3a8a;
+}
+.stat-number {
+    display: block;
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: #059669;
+    margin-bottom: 0.5rem;
+}
+.stat-label {
+    font-size: 1rem;
+    color: #1f2937;
+}
+
+/* 核心价值观部分 */
+.values-section {
+    padding: 80px 0;
+    background: #f8fafc;
+}
+.values-section h2 {
+    text-align: center;
+    font-size: 2.5rem;
+    color: #1e3a8a;
+    margin-bottom: 3rem;
+    font-weight: 600;
+}
+.values-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+.value-item {
+    background: #ffffff;
+    padding: 2.5rem;
+    border-radius: 12px;
+    text-align: center;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    border: 2px solid #059669;
+}
+.value-item i {
+    font-size: 3rem;
+    color: #059669;
+    margin-bottom: 1.5rem;
+}
+.value-item h3 {
+    font-size: 1.5rem;
+    color: #1e3a8a;
+    margin-bottom: 1rem;
+    font-weight: 600;
+}
+.value-item p {
+    color: #1f2937;
+    line-height: 1.8;
 }
 
 /* 服务区块 */
