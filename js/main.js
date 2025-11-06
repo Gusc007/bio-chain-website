@@ -30,19 +30,27 @@ function initLogoClick() {
             e.stopImmediatePropagation();
             console.log('Logo被点击了'); // 调试信息
             
-            const targetSection = document.querySelector('#home');
-            if (targetSection) {
-                const offsetTop = targetSection.offsetTop - 80;
-                window.scrollTo({
-                    top: Math.max(0, offsetTop),
-                    behavior: 'smooth'
-                });
+            // 检查是否是链接到其他页面
+            const href = logoLink.getAttribute('href');
+            if (href && href.includes('index.html')) {
+                // 如果是链接到index.html，直接跳转
+                window.location.href = href;
             } else {
-                // 如果找不到section，直接跳转到页面顶部
-                window.scrollTo({
-                    top: 0,
-                    behavior: 'smooth'
-                });
+                // 否则在当前页面查找#home
+                const targetSection = document.querySelector('#home');
+                if (targetSection) {
+                    const offsetTop = targetSection.offsetTop - 80;
+                    window.scrollTo({
+                        top: Math.max(0, offsetTop),
+                        behavior: 'smooth'
+                    });
+                } else {
+                    // 如果找不到section，直接跳转到页面顶部
+                    window.scrollTo({
+                        top: 0,
+                        behavior: 'smooth'
+                    });
+                }
             }
         }, true); // 使用捕获阶段
         
@@ -90,7 +98,8 @@ function initNavigation() {
     let isAnimating = false;
 
     if (navToggle) {
-        navToggle.addEventListener('click', function() {
+        navToggle.addEventListener('click', function(e) {
+            e.stopPropagation();
             if (isAnimating) return;
             isAnimating = true;
             navMenu.classList.toggle('active');
@@ -114,6 +123,18 @@ function initNavigation() {
             }
         });
     });
+
+    // 点击菜单外部区域关闭菜单
+    if (window.innerWidth <= 768) {
+        document.addEventListener('click', function(e) {
+            if (navMenu && navMenu.classList.contains('active')) {
+                // 如果点击的不是菜单本身或菜单按钮，则关闭菜单
+                if (!navMenu.contains(e.target) && !navToggle.contains(e.target)) {
+                    navMenu.classList.remove('active');
+                }
+            }
+        });
+    }
 }
 
 // 平滑滚动功能

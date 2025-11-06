@@ -670,33 +670,67 @@ main {
     .nav-menu {
         position: fixed;
         top: 70px;
-        left: -100%;
-        width: 100%;
-        height: calc(100vh - 70px);
+        right: -25%;
+        width: 25%;
+        max-width: 200px;
+        min-width: 150px;
         background: #ffffff;
         flex-direction: column;
         justify-content: flex-start;
-        align-items: center;
-        padding: 2rem 0;
-        transition: left 0.3s ease;
-        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        align-items: stretch;
+        padding: 1rem 0;
+        transition: right 0.3s ease;
+        box-shadow: -2px 4px 15px rgba(0, 0, 0, 0.2);
+        border: 2px solid #e2e8f0;
+        border-radius: 8px 0 0 8px;
+        z-index: 10003;
+        overflow-y: auto;
+        max-height: calc(100vh - 100px);
     }
     
     .nav-menu.active {
-        left: 0;
+        right: 0;
     }
     
     .nav-menu li {
-        margin: 1rem 0;
+        margin: 0;
+        border-bottom: 1px solid #e2e8f0;
+    }
+    
+    .nav-menu li:last-child {
+        border-bottom: none;
     }
     
     .nav-menu a {
-        font-size: 1.2rem;
-        padding: 0.5rem 1rem;
+        font-size: 0.95rem;
+        padding: 0.8rem 1rem;
+        display: block;
+        color: #2c3e50;
+        text-align: left;
+        transition: background-color 0.3s;
+    }
+    
+    .nav-menu a:hover {
+        background-color: #f8fafc;
+        color: #059669;
+    }
+    
+    .nav-menu a.active {
+        background-color: #e6f7f0;
+        color: #059669;
+        font-weight: 600;
     }
     
     .nav-toggle {
         display: flex;
+        z-index: 10004;
+    }
+    
+    /* 确保logo在移动端可点击 */
+    .logo,
+    .logo-link {
+        position: relative;
+        z-index: 10005 !important;
     }
     
     /* 主要内容 */
@@ -761,6 +795,19 @@ main {
 @media (max-width: 480px) {
     .container {
         padding: 0 15px;
+    }
+    
+    /* 小屏幕菜单进一步优化 */
+    .nav-menu {
+        width: 35%;
+        max-width: 160px;
+        min-width: 120px;
+        font-size: 0.9rem;
+    }
+    
+    .nav-menu a {
+        font-size: 0.85rem;
+        padding: 0.7rem 0.8rem;
     }
     
     .hero-content h1 {
