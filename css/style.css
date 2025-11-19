@@ -157,10 +157,51 @@ main {
 
 /* 首页横幅 */
 .hero {
-    background: linear-gradient(135deg, #a8e0d0 0%, #8dd4c0 50%, #72c8b0 100%);
+    position: relative;
     padding: 120px 0 80px;
     text-align: center;
     color: #2c3e50;
+    overflow: hidden;
+    min-height: 600px;
+    display: flex;
+    align-items: center;
+}
+
+/* 视频背景 */
+.hero-video {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 100%;
+    height: 100%;
+    min-width: 100%;
+    min-height: 100%;
+    object-fit: cover;
+    transform: translate(-50%, -50%);
+    z-index: 1;
+    background: #a8e0d0;
+}
+
+/* 视频遮罩层 - 确保文字清晰可见 */
+.hero-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(
+        to bottom,
+        rgba(168, 224, 208, 0.3) 0%,
+        rgba(141, 212, 192, 0.4) 50%,
+        rgba(114, 200, 176, 0.5) 100%
+    );
+    z-index: 2;
+}
+
+/* 确保内容在视频和遮罩层之上 */
+.hero .container {
+    position: relative;
+    z-index: 3;
 }
 
 .hero-content h1 {
@@ -168,14 +209,20 @@ main {
     font-weight: 700;
     margin-bottom: 1.5rem;
     color: #1a365d;
+    text-shadow: 2px 2px 8px rgba(255, 255, 255, 0.8), 0 0 20px rgba(255, 255, 255, 0.5);
+    position: relative;
+    z-index: 4;
 }
 
 .hero-subtitle {
     font-size: 1.3rem;
-    color: #4a5568;
+    color: #2c3e50;
     max-width: 800px;
     margin: 0 auto 2rem;
     line-height: 1.6;
+    text-shadow: 1px 1px 4px rgba(255, 255, 255, 0.8);
+    position: relative;
+    z-index: 4;
 }
 
 .hero-actions {
@@ -183,6 +230,8 @@ main {
     gap: 1rem;
     justify-content: center;
     flex-wrap: wrap;
+    position: relative;
+    z-index: 4;
 }
 
 /* 特色服务 */
