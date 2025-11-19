@@ -180,7 +180,9 @@ main {
     object-fit: cover;
     transform: translate(-50%, -50%);
     z-index: 1;
-    background: #000;
+    background: transparent;
+    /* 增强视频饱和度和对比度 */
+    filter: brightness(1.1) contrast(1.1) saturate(1.2);
 }
 
 /* 确保内容在视频之上 */
