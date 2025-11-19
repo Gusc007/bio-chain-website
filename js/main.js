@@ -7,7 +7,6 @@ document.addEventListener('DOMContentLoaded', function() {
     initNavigation();
     initSmoothScrolling();
     initContactForm();
-    initHeroVideo();
 });
 
 // Logo点击处理
@@ -285,69 +284,6 @@ function isValidPhone(phone) {
     const cleanPhone = phone.replace(/\D/g, '');
     // 至少7位数字，最多15位数字
     return cleanPhone.length >= 7 && cleanPhone.length <= 15;
-}
-
-// 首页视频背景初始化
-function initHeroVideo() {
-    const heroVideo = document.querySelector('.hero-video');
-    if (heroVideo) {
-        // 确保视频播放
-        const playVideo = () => {
-            heroVideo.play().catch(error => {
-                console.log('视频自动播放被阻止:', error);
-                // 如果自动播放失败，等待用户交互
-                const playOnClick = () => {
-                    heroVideo.play().then(() => {
-                        document.removeEventListener('click', playOnClick);
-                    }).catch(err => {
-                        console.error('播放失败:', err);
-                    });
-                };
-                document.addEventListener('click', playOnClick, { once: true });
-            });
-        };
-
-        // 视频可以播放时
-        heroVideo.addEventListener('canplay', function() {
-            playVideo();
-        });
-
-        // 视频开始播放
-        heroVideo.addEventListener('playing', function() {
-            console.log('视频开始播放');
-        });
-
-        // 如果视频已经可以播放
-        if (heroVideo.readyState >= 2) {
-            playVideo();
-        } else {
-            // 强制重新加载视频
-            heroVideo.load();
-        }
-
-        // 确保视频循环播放
-        heroVideo.addEventListener('ended', function() {
-            heroVideo.currentTime = 0;
-            heroVideo.play();
-        });
-
-        // 页面可见性变化时恢复播放
-        document.addEventListener('visibilitychange', function() {
-            if (!document.hidden && heroVideo.paused && heroVideo.readyState >= 2) {
-                heroVideo.play();
-            }
-        });
-
-        // 视频播放错误处理
-        heroVideo.addEventListener('error', function(e) {
-            console.error('视频加载错误:', e);
-            const error = heroVideo.error;
-            if (error) {
-                console.error('视频错误代码:', error.code);
-                console.error('视频错误信息:', error.message);
-            }
-        });
-    }
 }
 
 // 简单的动画效果

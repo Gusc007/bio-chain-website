@@ -157,64 +157,25 @@ main {
 
 /* 首页横幅 */
 .hero {
-    position: relative;
+    background: linear-gradient(135deg, #a8e0d0 0%, #8dd4c0 50%, #72c8b0 100%);
     padding: 120px 0 80px;
     text-align: center;
     color: #2c3e50;
-    overflow: hidden;
-    min-height: 600px;
-    display: flex;
-    align-items: center;
-    background: transparent;
-}
-
-/* 视频背景 */
-.hero-video {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    width: 100%;
-    height: 100%;
-    min-width: 100%;
-    min-height: 100%;
-    object-fit: cover;
-    transform: translate(-50%, -50%);
-    z-index: 1;
-    background: transparent;
-    /* 增强视频饱和度和对比度 */
-    filter: brightness(1.1) contrast(1.1) saturate(1.2);
-}
-
-/* 确保内容在视频之上 */
-.hero .container {
-    position: relative;
-    z-index: 2;
 }
 
 .hero-content h1 {
     font-size: 3.5rem;
     font-weight: 700;
     margin-bottom: 1.5rem;
-    color: #ffffff;
-    text-shadow: 
-        2px 2px 4px rgba(0, 0, 0, 0.8),
-        0 0 10px rgba(0, 0, 0, 0.6),
-        0 0 20px rgba(0, 0, 0, 0.4);
-    position: relative;
-    z-index: 3;
+    color: #1a365d;
 }
 
 .hero-subtitle {
     font-size: 1.3rem;
-    color: #ffffff;
+    color: #4a5568;
     max-width: 800px;
     margin: 0 auto 2rem;
     line-height: 1.6;
-    text-shadow: 
-        1px 1px 3px rgba(0, 0, 0, 0.8),
-        0 0 8px rgba(0, 0, 0, 0.5);
-    position: relative;
-    z-index: 3;
 }
 
 .hero-actions {
@@ -222,27 +183,6 @@ main {
     gap: 1rem;
     justify-content: center;
     flex-wrap: wrap;
-    position: relative;
-    z-index: 3;
-}
-
-/* Hero section 中的按钮样式优化 */
-.hero .btn {
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
-    backdrop-filter: blur(5px);
-}
-
-.hero .btn-secondary {
-    background: rgba(255, 255, 255, 0.2);
-    color: #ffffff;
-    border: 2px solid rgba(255, 255, 255, 0.8);
-    backdrop-filter: blur(5px);
-}
-
-.hero .btn-secondary:hover {
-    background: rgba(255, 255, 255, 0.3);
-    border-color: #ffffff;
-    color: #ffffff;
 }
 
 /* 特色服务 */
