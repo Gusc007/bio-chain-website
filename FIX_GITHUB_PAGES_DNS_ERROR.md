@@ -179,3 +179,12 @@ dig bio-chain.cn A +short
 
 你的 DNS 配置已经正确了，问题可能是 GitHub 需要更多时间验证，或者需要刷新验证。
 
+
+
+
+
+
+
+
+
+
